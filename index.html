@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Esoo Kim — Graphic & Brand Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;900&family=Noto+Sans+KR:wght@400;500;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+</script>
+</head>
+<body>
+<h1 class="sr">Esoo Kim — graphic and brand designer</h1>
+<canvas id="scene" aria-hidden="true"></canvas>
+<div id="track"></div>
+
+<header class="top">
+  <span></span>
+  <a class="logo" href="#top" aria-label="Esoo Kim — 처음으로"><span class="mk" aria-hidden="true"></span></a>
+  <div class="views" role="group" aria-label="보기 방식"><button data-view="stack" aria-pressed="true">STACK</button><span>/</span><button data-view="index" aria-pressed="false">INDEX</button></div>
+</header>
+<div class="now" id="now"><button id="nowOpen"><span id="nowTitle"></span><span id="nowMeta"></span></button></div>
+<footer class="gfoot"><a href="#about">CV/RESUME</a><span>/</span><a href="https://www.instagram.com/" target="_blank" rel="noopener">INSTAGRAM</a><span>/</span><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LINKEDIN</a></footer>
+<div class="tip glass" id="tip"></div>
+
+<section class="sheet glass" id="indexSheet" hidden aria-label="프로젝트 목록"></section>
+
+<dialog id="panel" class="glass" aria-labelledby="pTitle">
+  <div class="dhead glass"><span id="pCat"></span><button data-close>Close</button></div>
+  <div class="dbody">
+    <h2 class="ptitle" id="pTitle"></h2>
+    <div class="pgrid"><dl id="pMeta"></dl><p id="pDesc"></p></div>
+    <div class="plates" id="pPlates"></div>
+  </div>
+</dialog>
+
+<dialog id="info" class="glass" aria-label="About and contact">
+  <div class="dhead glass"><span>Esoo Kim<sup>®</sup></span><button data-close>Close</button></div>
+  <div class="dbody">
+    <div class="cols" id="about">
+      <h2>About</h2>
+      <div class="body">
+        <p class="lead">I build identities that hold together when they leave the screen — on a carton, a shopfront, a ticket stub.</p>
+        <p class="ko" style="max-width:46ch;margin:0 0 36px;color:var(--mute)">서울을 기반으로 브랜드 아이덴티티, 패키지, 인쇄물을 디자인합니다. 로고에서 끝나지 않고 실제 물건과 공간까지 이어지는 시스템을 만듭니다.</p>
+        <div class="facts">
+          <div><h3>Services</h3><ul><li>Brand identity &amp; logo systems</li><li>Packaging</li><li>Editorial &amp; book design</li><li>Custom lettering</li><li>Signage &amp; wayfinding</li></ul></div>
+          <div><h3>Selected clients</h3><ul><li>Orchard Tea Company</li><li>Hallim Ceramics</li><li>Sora Records</li><li>Bureau Nord</li><li>Seoul Paper Fair</li></ul></div>
+          <div><h3>Recognition</h3><ul><li>Type Directors Club, 2026</li><li>Pentawards Silver, 2025</li><li>Korea Design Award, 2024</li></ul></div>
+          <div><h3>Experience</h3><ul><li>Independent, 2022–now</li><li>Senior designer, Studio Field, 2018–2022</li><li>BFA Visual Design, 2018</li></ul></div>
+        </div>
+      </div>
+    </div>
+    <div class="cols" id="contact">
+      <h2>Contact</h2>
+      <div class="body">
+        <a class="mail" href="mailto:hello@esookim.com">hello@esookim.com</a>
+        <div class="facts">
+          <div><h3>Elsewhere</h3><ul><li><a href="#contact">Instagram</a></li><li><a href="#contact">Behance</a></li><li><a href="#contact">LinkedIn</a></li></ul></div>
+          <div><h3>Studio</h3><ul class="ko"><li>서울특별시 마포구</li><li>방문은 사전 예약제로 운영합니다.</li></ul></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script type="module" src="./main.js"></script>
+</body>
+</html>
