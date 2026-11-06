@@ -30,7 +30,7 @@ function revealStack(){if(stackStart===null)stackStart=performance.now()}
   }
   function go(){
     if(state!=='ready')return;state='done';cancelAnimationFrame(raf);
-    wrap.classList.add('out');revealStack();setTimeout(()=>wrap.remove(),450);
+    wrap.classList.add('out');revealStack();setTimeout(()=>wrap.remove(),460);
   }
   wrap.addEventListener('click',go);
   addEventListener('keydown',e=>{if(state==='ready'&&(e.key==='Enter'||e.key===' ')){e.preventDefault();go()}});
@@ -118,7 +118,7 @@ const panel={get open(){return !detail.hidden},close(){detail.hidden=true;docume
 let lastList='top',slideAt=0,slideN=1;
 function buildIndex(){
   sheet.innerHTML=`<div class="igrid">${projects.map(p=>`<button class="icard" data-id="${p.id}"><div class="iglass"><canvas></canvas><img alt=""></div><div class="icap"><span>${p.title}</span><span>(${p.year})</span></div></button>`).join('')}</div>
-  <footer class="ifoot"><a href="#about">CV/RESUME</a><span>/</span><a href="https://www.instagram.com/" target="_blank" rel="noopener">INSTAGRAM</a><span>/</span><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LINKEDIN</a></footer>`;
+  <footer class="ifoot"><a href="#about">CV/RESUME</a><span>|</span><a href="https://www.instagram.com/" target="_blank" rel="noopener">INSTAGRAM</a><span>|</span><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LINKEDIN</a></footer>`;
 }
 function fillImgs(){sheet.classList.add('noglass');sheet.querySelectorAll('.icard img').forEach((im,i)=>{im.src=arts[i].toDataURL('image/jpeg',.85)})}
 let drawThumbs=null;
@@ -268,7 +268,8 @@ function start3D(){
   const track=$('#track');
   let step=1,camZ=8,camY=0;
   function size(){
-    const w=innerWidth,h=innerHeight;renderer.setSize(w,h,false);camera.aspect=w/h;
+    /* 폰 사파리 주소창이 접히고 펴질 때 높이가 바뀌어 화면이 튀지 않도록, 가장 큰 화면 높이(lvh) 기준으로 고정 */
+    const w=innerWidth,h=canvas.clientHeight||innerHeight;renderer.setSize(w,h,false);camera.aspect=w/h;
     camera.fov=w<h?46:36;camera.updateProjectionMatrix();DIR.y=w<h?.62:.6;
     step=h*.5;track.style.height=(h+(N-1)*step)+'px';
     track.innerHTML=projects.map((_,i)=>`<div class="snap" style="top:${i*step}px"></div>`).join('');
@@ -337,7 +338,7 @@ function start3D(){
       m.rotation.y=0;
       m.rotation.x=tilt*.025;
       m.rotation.z=0;
-      const fade=ss(rel,-1.05,-.3)*(1-.65*ss(rel,4,8))*(intro<0?0:Math.min(1,intro*5));
+      const fade=ss(rel,-.5,-.08)*(1-.65*ss(rel,4,8))*(intro<0?0:Math.min(1,intro*5));
       const gu=u.glass.uniforms;gu.uFade.value=fade;gu.uHover.value=Math.min(1,u.h);gu.uDim.value=u.d;
       u.side.opacity=fade*.9;
       m.visible=fade>.01;
