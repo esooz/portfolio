@@ -249,7 +249,7 @@ function avgTop(cv){
 }
 function start3D(){
   const scene=new THREE.Scene();
-  const camera=new THREE.PerspectiveCamera(32,1,.1,100);
+  const camera=new THREE.PerspectiveCamera(32,1,.1,100);const PT=.2301,PF=.525;
   renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
   const geo=new THREE.BoxGeometry(2.1,1.5,.028);
   const aniso=renderer.capabilities.getMaxAnisotropy();
@@ -270,7 +270,10 @@ function start3D(){
   function size(){
     /* 폰 사파리 주소창이 접히고 펴질 때 높이가 바뀌어 화면이 튀지 않도록, 가장 큰 화면 높이(lvh) 기준으로 고정 */
     const w=innerWidth,h=canvas.clientHeight||innerHeight;renderer.setSize(w,h,false);camera.aspect=w/h;
-    camera.fov=w<h?46:36;camera.updateProjectionMatrix();DIR.y=w<h?.62:.6;
+    const port=w<h;camera.fov=port?2*Math.atan(PT/camera.aspect)*180/Math.PI:36;
+    /* 폰: 주소창 상태(화면 높이)와 상관없이 썸네일 크기는 화면 너비 기준, 위치는 헤더와 푸터 사이 기준으로 고정 */
+    if(port){const hb=document.querySelector('.top').getBoundingClientRect().bottom,fr=document.querySelector('.gfoot').getBoundingClientRect(),ft=fr.height?fr.top:innerHeight;camera.setViewOffset(w,h,0,h/2-(hb+(ft-hb)*PF),w,h)}else camera.clearViewOffset();
+    camera.updateProjectionMatrix();DIR.y=w<h?.62:.6;
     step=h*.5;track.style.height=(h+(N-1)*step)+'px';
     track.innerHTML=projects.map((_,i)=>`<div class="snap" style="top:${i*step}px"></div>`).join('');
     const bg=getComputedStyle(document.documentElement).getPropertyValue('--bg').trim()||'#f6f6f5';
@@ -284,13 +287,13 @@ function start3D(){
   const ray=new THREE.Raycaster(),ptr=new THREE.Vector2(-9,-9);
   addEventListener('pointermove',e=>{
     if(e.pointerType&&e.pointerType!=='mouse')return;
-    ptr.set(e.clientX/innerWidth*2-1,-(e.clientY/innerHeight)*2+1);mx=ptr.x;my=ptr.y;
+    ptr.set(e.clientX/innerWidth*2-1,-(e.clientY/(canvas.clientHeight||innerHeight))*2+1);mx=ptr.x;my=ptr.y;
     tip.style.transform=`translate(${e.clientX+16}px,${e.clientY+14}px)`;
   },{passive:true});
   document.addEventListener('pointerleave',()=>ptr.set(-9,-9));
   canvas.addEventListener('click',e=>{if(picked)return;
     /* 탭/클릭한 그 지점에서 바로 판을 찾음 (터치는 hover 상태를 쓰지 않음) */
-    ray.setFromCamera(new THREE.Vector2(e.clientX/innerWidth*2-1,-(e.clientY/innerHeight)*2+1),camera);
+    ray.setFromCamera(new THREE.Vector2(e.clientX/innerWidth*2-1,-(e.clientY/(canvas.clientHeight||innerHeight))*2+1),camera);
     const hs=ray.intersectObjects(meshes.filter(m=>m.visible&&m.userData.glass.uniforms.uFade.value>.3)),h=hs.length?hs[0].object:null;
     if(!h)return;picked=h;const id=projects[h.userData.i].id;setTimeout(()=>{location.hash=id;picked=null},reduce?0:340)});
   $('#nowOpen').onclick=()=>{location.hash=projects[(capM||meshes[front]).userData.i].id};
@@ -349,7 +352,7 @@ function start3D(){
      const fm=capM||meshes[front];scene.updateMatrixWorld();
      BL.set(-1.05,-.75,.008).applyMatrix4(fm.matrixWorld).project(camera);
      BR.set(1.05,-.75,.008).applyMatrix4(fm.matrixWorld).project(camera);
-     const x1=(BL.x+1)/2*innerWidth,x2=(BR.x+1)/2*innerWidth,yb=(1-Math.min(BL.y,BR.y))/2*innerHeight;
+     const x1=(BL.x+1)/2*innerWidth,x2=(BR.x+1)/2*innerWidth,yb=(1-Math.min(BL.y,BR.y))/2*(canvas.clientHeight||innerHeight);
      nowEl.style.transform=`translate(${x1}px,${yb}px)`;nowEl.style.width=Math.max(0,x2-x1)+'px';
      nowEl.style.opacity=String(capA*(noHover?Math.max(0,1-Math.abs(cur-front)*2.2):1)*fm.userData.glass.uniforms.uFade.value*ss(intro,1.15,1.65));}
     if(sheet.hidden)renderer.render(scene,camera);
