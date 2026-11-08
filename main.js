@@ -304,6 +304,10 @@ function avgTop(cv){
 }
 function start3D(){
   const scene=new THREE.Scene();
+  /* 썸네일 넘기는 속도 — 모바일/데스크탑 따로
+     step: 한 장 넘기는 데 필요한 스크롤 (화면 높이 대비, 클수록 느림)
+     follow: 판이 따라오는 빠르기 (클수록 빠름) */
+  const SCROLL={mobile:{step:.56,follow:8.5},desktop:{step:.9,follow:2}};
   const camera=new THREE.PerspectiveCamera(32,1,.1,100);const PT=.2301;let pile=null,pOff=null,pZ=1;
   renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
   const geo=new THREE.BoxGeometry(2.1,1.5,.028);
@@ -337,7 +341,7 @@ function start3D(){
         if(b>0)top=Math.min(top,y);else if(r===0)bot=Math.max(bot,y)}
       pile={top,bot};
     }else pile=null;
-    step=h*(w<h?.56:.65);track.style.height=(h+(N-1)*step)+'px';
+    step=h*(w<h?SCROLL.mobile.step:SCROLL.desktop.step);track.style.height=(h+(N-1)*step)+'px';
     track.innerHTML=projects.map((_,i)=>`<div class="snap" style="top:${i*step}px"></div>`).join('');
     const bg=getComputedStyle(document.documentElement).getPropertyValue('--bg').trim()||'#f6f6f5';
     renderer.setClearColor(bg);haze.set(bg).lerp(new THREE.Color('#e4e4e2'),.55);
@@ -375,7 +379,7 @@ function start3D(){
     const dt=Math.min((now-last)/1000,.05)||.016;last=now;
     const damp=r=>reduce?1:1-Math.exp(-dt*r);
     const target=cl(scrollY/step,0,N-1);
-    const prev=cur;cur+=(target-cur)*damp(innerWidth<innerHeight?8.5:7);
+    const prev=cur;cur+=(target-cur)*damp(innerWidth<innerHeight?SCROLL.mobile.follow:SCROLL.desktop.follow);
     vel+=((cur-prev)/dt-vel)*damp(6);
     cmx+=(mx-cmx)*damp(2.5);cmy+=(my-cmy)*damp(2.5);
     camera.position.set(0,.2,camera.aspect<1?7.1:6.3);camera.lookAt(0,camera.aspect<1?.3:.15,1.3);
