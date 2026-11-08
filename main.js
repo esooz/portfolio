@@ -3,7 +3,7 @@
 // 이미지: img (썸네일, 7:5 권장), slides: ["./images/a-1.jpg", ...] (상세 페이지 슬라이드, 비우면 썸네일 사용)
 import * as THREE from 'three';
 
-const INTRO_LOGO_SRC="./images/intro-logo.jpg",INTRO_LOGO_DARK_SRC="./images/intro-logo-dark.jpg";
+const INTRO_LOGO_SRC="./images/intro-logo-black.png",INTRO_LOGO_DARK_SRC="./images/intro-logo-white.png";
 /* ───────── 도입부 ───────── */
 let stackStart=null;
 function revealStack(){if(stackStart===null)stackStart=performance.now()}
@@ -27,7 +27,7 @@ function revealStack(){if(stackStart===null)stackStart=performance.now()}
   function draw(now){
     const t=RM?9:(now-t0)/1000;
     x.globalCompositeOperation='source-over';x.globalAlpha=1;x.clearRect(0,0,W,H);
-    x.globalCompositeOperation=DARK?'source-over':'multiply';x.globalAlpha=ss(.15,2,t);x.drawImage(img,box.x,box.y,box.w,box.h);
+    x.globalCompositeOperation='source-over';x.globalAlpha=ss(.15,2,t);x.drawImage(img,box.x,box.y,box.w,box.h);
     if(t<2.1)raf=requestAnimationFrame(draw);
   }
   function go(){
@@ -370,6 +370,13 @@ function start3D(){
     if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();scrollTo({top:Math.max(front-1,0)*step,behavior:'smooth'})}
   });
   addEventListener('scroll',()=>document.body.classList.toggle('scrolled',scrollY>20),{passive:true});
+  /* 트랙패드: 맨 위·맨 아래 끝에서 더 밀어도 화면이 튕기거나(헤더가 밀려 사라짐) 새로고침되지 않게 */
+  addEventListener('wheel',e=>{
+    if(Math.abs(e.deltaY)<=Math.abs(e.deltaX))return;
+    const el=(e.target.closest&&e.target.closest('.detail:not([hidden]),.sheet:not([hidden])'))||document.scrollingElement;
+    const t=el.scrollTop,atTop=t<=0,atBot=t+el.clientHeight>=el.scrollHeight-1;
+    if((atTop&&e.deltaY<0)||(atBot&&e.deltaY>0))e.preventDefault();
+  },{passive:false});
 
   const ease=p=>p>=1?1:1-Math.pow(2,-10*p);
   const backOut=p=>{const c=1.35,q=p-1;return 1+(c+1)*q*q*q+c*q*q};
