@@ -11,7 +11,8 @@
   :root:not([data-theme="light"]){--bg:#121212;--ink:#f3f3f1;--mute:#8f8f8f;--line:#2a2a2a;--accent:#7f8bff;color-scheme:dark}
 }
 :root[data-theme="dark"]{--bg:#121212;--ink:#f3f3f1;--mute:#8f8f8f;--line:#2a2a2a;--accent:#7f8bff;color-scheme:dark}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scrollbar-width:none}
+html::-webkit-scrollbar,body::-webkit-scrollbar{display:none;width:0;height:0}
 *,*::before,*::after{box-sizing:inherit}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.45;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
@@ -43,6 +44,9 @@ html{scroll-snap-type:y proximity}
 .now{position:fixed;z-index:5;left:0;top:0;padding-top:max(5px,.45vw);pointer-events:none;will-change:transform,opacity;opacity:0}
 .now button{display:flex;justify-content:space-between;width:100%;gap:1em;font-size:var(--fs);line-height:1.2;pointer-events:auto;text-align:left}
 .now button:hover{color:var(--mute)}
+.now.side{padding:0 5px}
+.now.side button{font-size:var(--fs);align-items:center;pointer-events:none}
+.now.side button span{pointer-events:auto;cursor:pointer}
 #nowMeta::before{content:"("}
 #nowMeta::after{content:")"}
 .hint{display:none}
@@ -54,7 +58,7 @@ html{scroll-snap-type:y proximity}
 .sheet{position:fixed;z-index:4;left:14px;right:14px;top:calc(env(safe-area-inset-top,0px) + 74px);bottom:calc(env(safe-area-inset-bottom,0px) + 74px);overflow:auto;padding:8px 20px;border-radius:20px}
 .sheet[hidden]{display:none}
 .sheet.glass{inset:0;top:0;bottom:0;left:0;right:0;border-radius:0;border:0;background:var(--bg);-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none;
-  padding:calc(env(safe-area-inset-top,0px) + var(--hh) + 2.5vw) var(--mx) 0}
+  padding:calc(env(safe-area-inset-top,0px) + var(--hh) - 1px) 0 0}
 .is-index .now,.is-index .hint{display:none}
 .igrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:max(16px,1.64vw) max(6px,.6vw)}
 @media (max-width:900px){.igrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -65,10 +69,10 @@ html{scroll-snap-type:y proximity}
 .iglass img{display:none;object-fit:cover}
 .noglass .iglass img{display:block}
 .noglass .iglass canvas{display:none}
-.icap{display:flex;justify-content:space-between;gap:12px;padding-top:max(5px,.45vw);font-size:var(--fs);line-height:1.2}
+.icap{display:flex;justify-content:space-between;gap:12px;padding:max(5px,.45vw) 3px 0;font-size:var(--fs);line-height:1.2}
 .icap span:first-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .icap span:last-child{white-space:nowrap}
-.ifoot{display:flex;justify-content:center;gap:clamp(8px,.86vw,16px);margin:max(20px,2vw) calc(-1*var(--mx)) 0;padding:var(--fp) 16px calc(env(safe-area-inset-bottom,0px) + var(--fp));border-top:1px solid var(--ink);font-size:var(--fs);line-height:1.2}
+.ifoot{display:flex;justify-content:center;gap:clamp(8px,.86vw,16px);margin:max(20px,2vw) 0 0;padding:var(--fp) 16px calc(env(safe-area-inset-bottom,0px) + var(--fp));border-top:1px solid var(--ink);font-size:var(--fs);line-height:1.2}
 .ifoot a:hover{color:var(--mute)}
 .row{display:grid;grid-template-columns:72px 2fr 2fr 1fr 60px;gap:18px;align-items:center;width:100%;text-align:left;padding:10px 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 8%,transparent)}
 .row:last-child{border-bottom:0}
@@ -111,7 +115,7 @@ dialog::backdrop{background:color-mix(in srgb,var(--bg) 25%,transparent);-webkit
 @media (max-width:720px){.cols h2,.cols .body{grid-column:1/-1}.facts{grid-template-columns:1fr}}
 
 .detail{position:fixed;inset:0;z-index:5;overflow:auto;background:var(--bg);font-size:var(--fs);line-height:1.3;
-  padding:calc(env(safe-area-inset-top,0px) + var(--hh) + max(10px,1.1vw)) 0 calc(env(safe-area-inset-bottom,0px) + var(--fp)*2 + var(--fs)*1.2 + 40px)}
+  padding:calc(env(safe-area-inset-top,0px) + var(--hh) + 3px) 0 calc(env(safe-area-inset-bottom,0px) + var(--fp)*2 + var(--fs)*1.2 + 40px)}
 .detail[hidden]{display:none}
 .is-detail .now{display:none}
 .dmeta{display:grid;grid-template-columns:18.75% 18.75% 50.5% 12%;align-items:start}
@@ -124,9 +128,14 @@ dialog::backdrop{background:color-mix(in srgb,var(--bg) 25%,transparent);-webkit
 .dshow{position:relative;width:calc(min(67.7%,calc((100svh - var(--hh) - max(10px,1.1vw) - 6.4em - var(--fp)*2 - 22px)*1.51))*.945);margin:2px auto 0;aspect-ratio:1612/1068}
 .dshow.multi{cursor:e-resize}
 .dshow.multi.left{cursor:w-resize}
-.dslides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity .18s ease}
-.dslides img.on{opacity:1}
-.dcount{position:absolute;right:0;top:100%;padding-top:6px;color:var(--mute)}
+.dslides img,.dslides .dvid{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;opacity:0;transition:opacity .18s ease}
+.dvid video{display:block;width:100%;height:100%;object-fit:contain}
+.dslides img.fill,.dslides .dvid.fill video{object-fit:cover}
+/* 아이폰 사파리가 영상 가장자리에 1px 배경색 선을 그리는 문제 → 영상을 살짝 키우고 바깥을 잘라 숨김 */
+.dvid{overflow:hidden}
+.dvid video{transform:scale(1.012);transform-origin:50% 50%}
+.dslides .dvid:not(.on){pointer-events:none}
+.dslides img.on,.dslides .dvid.on{opacity:1}
 .dfoot{display:none}
 .dback,.dnext,.dfoot a{display:inline-flex;align-items:center;gap:.6em;white-space:nowrap}
 .arr{width:4.2em;height:auto;aspect-ratio:523.38/65.46;flex:none;display:block}
@@ -138,21 +147,22 @@ dialog::backdrop{background:color-mix(in srgb,var(--bg) 25%,transparent);-webkit
   .dtitle div,.dinfo div{white-space:normal}
   .dgap{display:none}
   .dshow{width:100%;aspect-ratio:auto;margin:0}
-  .dslides img{position:static;opacity:1;height:auto;margin-bottom:6px}
-  .dcount{display:none}
+  .dslides img,.dslides .dvid{position:static;width:100%;opacity:1;height:auto;margin:0}
+  .dslides .dvid{position:relative;pointer-events:auto}
+  .dvid video{height:auto}
   .dfoot{display:flex;justify-content:space-between;align-items:center;position:fixed;left:0;right:0;z-index:6;bottom:calc(max(9px,env(safe-area-inset-bottom,0px)) + 9px + var(--fs)*1.2 + 13px);padding:0 6px;font-size:max(13px,var(--fs));pointer-events:none}
   .dfoot a{pointer-events:auto}
   .dfoot>span:first-child{display:none}
 }
 img,canvas{-webkit-user-drag:none;-webkit-touch-callout:none;user-select:none;-webkit-user-select:none}
-.dslides img,.iglass img{pointer-events:none}
+.dslides img,.dslides video,.iglass img{pointer-events:none}
 #intro{position:fixed;inset:0;z-index:20;background:#fff;transition:opacity .4s cubic-bezier(.45,0,.25,1);cursor:pointer}
 #intro.out{opacity:0;pointer-events:none}
 #intro canvas{position:absolute;inset:0;display:block}
 @media (max-width:560px){
   .sheet.glass{padding:calc(env(safe-area-inset-top,0px) + var(--hh) - 1px) 0 calc(var(--fs)*1.2 + 38px)}
   .gfoot{padding:9px 16px}
-  .icap{padding:max(5px,.45vw) 8px 0}
+  .icap{padding:max(5px,.45vw) 3px 0}
   .ifoot{display:none}
   .is-index:not(.is-detail) .gfoot{display:flex}
 }

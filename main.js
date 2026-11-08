@@ -45,25 +45,28 @@ const projects = [
   // 맨 앞(첫 번째) 항목이 스택 맨 앞 유리판입니다. 이미지는 현재 임시 썸네일입니다 (7:5 권장).
   {id:"cryptids", title:"CRYPTIDS", year:"Fall 2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/cryptids.jpg",
    desc:"프로젝트 설명을 입력하세요.", c:["#2b2b2b", "#d8d8d4"], motif:"n"},
-  {id:"nuflaat", title:"NUFLAAT CRACKER CAMPAIGN", year:"Winter 2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/nuflaat.jpg",
+  {id:"nuflaat", title:"NUFLAAT CRACKER CAMPAIGN", year:"Fall 2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal",
+   slides:["./images/nuflaat-1.jpg", "./images/nuflaat-2.jpg", "./images/nuflaat-3.jpg", "./images/nuflaat-4.jpg"], img:"./images/nuflaat-thumb.jpg",
    desc:"프로젝트 설명을 입력하세요.", c:["#e9dfcc", "#3b2b22"], motif:"rows"},
-  {id:"hatching-tomorrow", title:"HATCHING TOMORROW", year:"Winter 2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/hatching-tomorrow.jpg",
-   desc:"프로젝트 설명을 입력하세요.", c:["#0d0d0d", "#5f8079"], motif:"cover"},
+  {id:"narrative-of-layer", title:"NARRATIVE OF LAYER", year:"2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:["./images/narrative-of-layer-1.jpg", "./images/narrative-of-layer-2.jpg", "./images/narrative-of-layer-3.jpg"], img:"./images/narrative-of-layer.jpg",
+   desc:"프로젝트 설명을 입력하세요.", c:["#c9cfdb", "#2e3442"], motif:"stack"},
   {id:"oclyn", title:"OCLYN", year:"Winter 2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/oclyn.jpg",
    desc:"프로젝트 설명을 입력하세요.", c:["#f2f2f2", "#1a1a1a"], motif:"wave"},
   {id:"interwoven-time", title:"INTERWOVEN TIME", year:"Winter 2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/interwoven-time.jpg",
    desc:"프로젝트 설명을 입력하세요.", c:["#eef1e6", "#4a4a55"], motif:"disc"},
-  {id:"coilisim", title:"COILISIM 蝸殼敎", year:"Winter 2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/coilisim.jpg",
-   desc:"프로젝트 설명을 입력하세요.", c:["#d9cdb0", "#2f3f86"], motif:"stamp"},
-  {id:"narrative-of-layer", title:"NARRATIVE OF LAYER", year:"2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/narrative-of-layer.jpg",
-   desc:"프로젝트 설명을 입력하세요.", c:["#c9cfdb", "#2e3442"], motif:"stack"},
+  {id:"the-point-of-collection", title:"THE POINT OF COLLECTION", year:"Fall 2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal",
+   slides:["./images/the-point-of-collection-1.mp4?v=2", "./images/the-point-of-collection-2.jpg", "./images/the-point-of-collection-3.jpg"], img:"./images/the-point-of-collection-thumb.jpg",
+   desc:"프로젝트 설명을 입력하세요.", c:["#f2f2f2", "#1a1a1a"], motif:"stamp"},
+  {id:"hatching-tomorrow", title:"HATCHING TOMORROW", year:"Winter 2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/hatching-tomorrow.jpg",
+   desc:"프로젝트 설명을 입력하세요.", c:["#0d0d0d", "#5f8079"], motif:"cover"},
   {id:"untitled-01", title:"UNTITLED 01", year:"2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/untitled-01.jpg",
    desc:"프로젝트 설명을 입력하세요.", c:["#cccccc","#333333"], motif:"n"},
   {id:"untitled-02", title:"UNTITLED 02", year:"2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/untitled-02.jpg",
    desc:"프로젝트 설명을 입력하세요.", c:["#cccccc","#333333"], motif:"n"},
-  {id:"untitled-03", title:"UNTITLED 03", year:"2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/untitled-03.jpg",
+  {id:"samsung-galaxy-unpacked", title:"SAMSUNG GALAXY UNPACKED", year:"2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal",
+   slides:["./images/samsung-1.mp4"], img:"./images/samsung-thumb.jpg?v=2",
    desc:"프로젝트 설명을 입력하세요.", c:["#cccccc","#333333"], motif:"n"},
-  {id:"untitled-04", title:"UNTITLED 04", year:"2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/untitled-04.jpg",
+  {id:"blackpink-go", title:"BLACKPINK “GO” M/V", year:"2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:["./images/blackpink-1.jpg", "./images/blackpink-2.mp4?v=3", "./images/blackpink-3.jpg", "./images/blackpink-4.jpg", "./images/blackpink-5.jpg", "./images/blackpink-6.jpg", "./images/blackpink-7.jpg", "./images/blackpink-8.jpg", "./images/blackpink-9.jpg", "./images/blackpink-10.jpg"], img:"./images/blackpink-thumb.jpg",
    desc:"프로젝트 설명을 입력하세요.", c:["#cccccc","#333333"], motif:"n"},
   {id:"untitled-05", title:"UNTITLED 05", year:"2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/untitled-05.jpg",
    desc:"프로젝트 설명을 입력하세요.", c:["#cccccc","#333333"], motif:"n"}
@@ -114,7 +117,7 @@ const arts=[],thumbs=[];
 /* ───────── UI ───────── */
 const $=s=>document.querySelector(s);
 const sheet=$('#indexSheet'),detail=$('#detail'),info=$('#info'),tip=$('#tip');
-const panel={get open(){return !detail.hidden},close(){detail.hidden=true;document.body.classList.remove('is-detail')}};
+const panel={get open(){return !detail.hidden},close(){detail.querySelectorAll('video').forEach(v=>v.pause());detail.hidden=true;document.body.classList.remove('is-detail')}};
 let lastList='top',slideAt=0,slideN=1;
 function buildIndex(){
   sheet.innerHTML=`<div class="igrid">${projects.map(p=>`<button class="icard" data-id="${p.id}"><div class="iglass"><canvas></canvas><img alt=""></div><div class="icap"><span>${p.title}</span><span>(${p.year})</span></div></button>`).join('')}</div>
@@ -136,10 +139,15 @@ function openProject(id){
     <div class="dinfo">${info4.map(x=>`<div>${x[0]} : ${x[1]}</div>`).join('')}</div>
     <a class="dnext" href="#${nx.id}" aria-label="Next Project"><svg class="arr" viewBox="0 0 523.38 65.46" aria-hidden="true"><line y1="32.73" x2="339.66" y2="32.73" stroke="currentColor" stroke-width="10.91"/><path fill="currentColor" d="M486.84,29.52c25.86,1.48,36.43,2.2,36.54,3.21-.11,1.01-10.7,1.4-36.54,3.21-127.37,8.91-147.18,29.52-147.18,29.52V0s19.41,22.23,147.18,29.52Z"/></svg></a>
   </div>
-  <div class="dshow${slides.length>1?' multi':''}"><div class="dslides">${slides.map((s,k)=>`<img draggable="false" src="${s}" alt="${p.title} ${k+1}"${k?'':' class="on"'}>`).join('')}</div>
-    ${slides.length>1?`<div class="dcount"><span>1</span> / ${slides.length}</div>`:''}</div>
+  <div class="dshow${slides.length>1?' multi':''}"><div class="dslides">${slides.map((s,k)=>/\.(mp4|webm|mov)($|\?)|^data:video/i.test(s)?`<div class="dvid${k?'':' on'}"><video src="${s}" muted loop playsinline preload="auto" aria-label="${p.title} ${k+1}"></video></div>`:`<img draggable="false" src="${s}" alt="${p.title} ${k+1}"${k?'':' class="on"'}>`).join('')}</div>
+    </div>
   <div class="dfoot"><span></span><a href="#${pv.id}" aria-label="Previous Project"><svg class="arr" viewBox="0 0 523.38 65.46" aria-hidden="true"><line x1="523.38" y1="32.73" x2="183.72" y2="32.73" stroke="currentColor" stroke-width="10.91"/><path fill="currentColor" d="M36.54,29.52C10.68,31,.11,31.72,0,32.73c.11,1.01,10.7,1.4,36.54,3.21,127.37,8.91,147.18,29.52,147.18,29.52V0s-19.41,22.23-147.18,29.52Z"/></svg></a><a href="#${nx.id}" aria-label="Next Project"><svg class="arr" viewBox="0 0 523.38 65.46" aria-hidden="true"><line y1="32.73" x2="339.66" y2="32.73" stroke="currentColor" stroke-width="10.91"/><path fill="currentColor" d="M486.84,29.52c25.86,1.48,36.43,2.2,36.54,3.21-.11,1.01-10.7,1.4-36.54,3.21-127.37,8.91-147.18,29.52-147.18,29.52V0s19.41,22.23,147.18,29.52Z"/></svg></a></div>`;
   slideAt=0;slideN=slides.length;
+  /* 웹: 지금 화면에 띄워진 슬라이드의 영상만 재생(소리 포함), 나머지는 멈춤 / 모바일: 전부 재생, 소리는 화면에 보이는 만큼만 */
+  detail.querySelectorAll('.dslides video').forEach(v=>{const sl=v.closest('.dvid');if(isMob()||(sl&&sl.classList.contains('on')))playVid(v,true);else{setVol(v);v.pause()}});
+  requestAnimationFrame(mobVolumes);
+  /* 가로형 이미지·영상은 틀을 꽉 채움(양옆 여백 없음), 세로형은 잘리지 않게 가운데 */
+  detail.querySelectorAll('.dslides img,.dslides video').forEach(m=>{const f=()=>{const w=m.naturalWidth||m.videoWidth,h=m.naturalHeight||m.videoHeight;if(w&&h){const el=m.closest('.dvid')||m;el.classList.toggle('fill',w>=h);if(w/h>1.52&&el===el.parentNode.firstElementChild){const sh=el.closest('.dshow');if(sh&&!matchMedia('(max-width:700px)').matches)sh.style.aspectRatio=w+'/'+h}}};if(m.complete||m.readyState>0)f();m.addEventListener('load',f);m.addEventListener('loadedmetadata',f)});
   if(info.open)info.close();
   detail.hidden=false;document.body.classList.add('is-detail');detail.scrollTop=0;
 }
@@ -148,10 +156,55 @@ detail.addEventListener('click',e=>{
   e.preventDefault();a.classList.add('flash');const h=a.getAttribute('href').slice(1);
   setTimeout(()=>{location.hash=h},reduce?0:140);
 });
+/* 영상: 소리 켜고 자동 재생. 브라우저가 소리 자동 재생을 막으면 음소거로 재생하다가
+   화면을 처음 누르거나 키를 누르는 순간 자동으로 소리를 켭니다. */
+/* ── 영상 소리 ─────────────────────────────────────────────
+   모든 영상 소리 = VOL(3%). 웹은 띄워진 슬라이드의 영상만, 모바일은 화면에 보이는 만큼만.
+   아이폰/아이패드 사파리는 video.volume을 무시하므로 Web Audio(게인)로 줄이고,
+   그 경로가 준비되기 전에는 절대 소리를 내지 않음(음소거 재생 → 첫 터치에 3%로 켜짐). */
+const VOL=.03;let actx=null;
+const NEED_GAIN=(()=>{try{const t=document.createElement('video');t.volume=.5;return Math.abs(t.volume-.5)>.01}catch(e){return true}})();
+function primeAudio(){
+  if(!NEED_GAIN)return;
+  try{actx=actx||new(window.AudioContext||window.webkitAudioContext)();if(actx.state!=='running')actx.resume().catch(()=>{})}catch(e){}
+}
+/* 사이트 어디든 처음 터치/클릭하는 순간 오디오 경로를 준비 (아이폰은 터치 안에서만 허용) */
+['pointerdown','touchend','click','keydown'].forEach(t=>addEventListener(t,primeAudio,{capture:true,passive:true}));
+function setVol(v){
+  if(!NEED_GAIN){v.volume=VOL;return}
+  if(v._g||!actx)return;
+  try{const src=actx.createMediaElementSource(v),g=actx.createGain();g.gain.value=VOL;src.connect(g);g.connect(actx.destination);v._g=g}catch(e){}
+}
+const canSound=v=>!NEED_GAIN||!!(v._g&&actx);
+const isMob=()=>matchMedia('(max-width:700px)').matches;
+/* 영상 소리 크기 = VOL × f (f: 0~1) */
+function vidLevel(v,f){f=Math.max(0,Math.min(1,f));const L=VOL*f;if(v._g)v._g.gain.value=L;else if(!NEED_GAIN)v.volume=L}
+/* 모바일: 스크롤로 영상이 화면 밖으로 나갈수록 소리가 점점 작아짐 (영상은 계속 재생) */
+function mobVolumes(){
+  if(!isMob()||detail.hidden)return;const H=innerHeight;
+  detail.querySelectorAll('.dslides video').forEach(v=>{const r=v.getBoundingClientRect();if(!r.height)return;
+    const vis=Math.max(0,Math.min(r.bottom,H)-Math.max(r.top,0));vidLevel(v,vis/Math.min(r.height,H))});
+}
+detail.addEventListener('scroll',mobVolumes,{passive:true});addEventListener('resize',mobVolumes);
+function playVid(v,withSound){
+  primeAudio();setVol(v);if(isMob())mobVolumes();
+  if(withSound&&!canSound(v)){withSound=false;armUnmute()}
+  v.muted=!withSound;
+  const pr=v.play();if(pr&&pr.catch)pr.catch(()=>{v.muted=true;v.play().catch(()=>{});armUnmute()});
+}
+let unmuteArmed=false;
+function armUnmute(){
+  if(unmuteArmed)return;unmuteArmed=true;
+  const on=()=>{unmuteArmed=false;['pointerdown','touchend','keydown'].forEach(t=>removeEventListener(t,on,true));
+    primeAudio();if(detail.hidden)return;
+    detail.querySelectorAll('.dslides video').forEach(v=>{const s=v.closest('.dvid');if(s&&(s.classList.contains('on')||isMob())){
+      setVol(v);if(!canSound(v))return;if(isMob())mobVolumes();v.muted=false;v.play().catch(()=>{v.muted=true})}})};
+  ['pointerdown','touchend','keydown'].forEach(t=>addEventListener(t,on,true));
+}
 function goSlide(d){
-  const imgs=detail.querySelectorAll('.dslides img');if(imgs.length<2)return;
+  const imgs=detail.querySelectorAll('.dslides > *');if(imgs.length<2)return;
   slideAt=(slideAt+d+imgs.length)%imgs.length;
-  imgs.forEach((im,k)=>im.classList.toggle('on',k===slideAt));
+  imgs.forEach((im,k)=>{im.classList.toggle('on',k===slideAt);const v=im.querySelector&&im.querySelector('video');if(v){if(k===slideAt){v.currentTime=0;playVid(v,true)}else v.pause()}});
   const c=detail.querySelector('.dcount span');if(c)c.textContent=slideAt+1;
 }
 detail.addEventListener('click',e=>{
@@ -272,9 +325,9 @@ function start3D(){
     const w=innerWidth,h=canvas.clientHeight||innerHeight;renderer.setSize(w,h,false);camera.aspect=w/h;
     const port=w<h;camera.fov=port?2*Math.atan(PT/camera.aspect)*180/Math.PI:36;
     /* 폰: 주소창 상태(화면 높이)와 상관없이 썸네일 크기는 화면 너비 기준, 위치는 헤더와 푸터 사이 기준으로 고정 */
-    if(port){const hb=document.querySelector('.top').getBoundingClientRect().bottom,fr=document.querySelector('.gfoot').getBoundingClientRect(),ft=fr.height?fr.top:innerHeight;camera.setViewOffset(w,h,0,h/2-(hb+(ft-hb)*PF),w,h)}else camera.clearViewOffset();
+    if(port){const hb=document.querySelector('.top').offsetHeight,ft=h-(document.querySelector('.gfoot').offsetHeight||40);camera.setViewOffset(w,h,0,h/2-(hb+(ft-hb)*PF),w,h)}else camera.clearViewOffset();
     camera.updateProjectionMatrix();DIR.y=w<h?.62:.6;
-    step=h*.5;track.style.height=(h+(N-1)*step)+'px';
+    step=h*.65;track.style.height=(h+(N-1)*step)+'px';
     track.innerHTML=projects.map((_,i)=>`<div class="snap" style="top:${i*step}px"></div>`).join('');
     const bg=getComputedStyle(document.documentElement).getPropertyValue('--bg').trim()||'#f6f6f5';
     renderer.setClearColor(bg);haze.set(bg).lerp(new THREE.Color('#e4e4e2'),.55);
@@ -312,7 +365,7 @@ function start3D(){
     const dt=Math.min((now-last)/1000,.05)||.016;last=now;
     const damp=r=>reduce?1:1-Math.exp(-dt*r);
     const target=cl(scrollY/step,0,N-1);
-    const prev=cur;cur+=(target-cur)*damp(10);
+    const prev=cur;cur+=(target-cur)*damp(7);
     vel+=((cur-prev)/dt-vel)*damp(6);
     cmx+=(mx-cmx)*damp(2.5);cmy+=(my-cmy)*damp(2.5);
     camera.position.set(0,.2,camera.aspect<1?7.1:6.3);camera.lookAt(0,camera.aspect<1?.3:.15,1.3);
@@ -353,8 +406,13 @@ function start3D(){
      BL.set(-1.05,-.75,.008).applyMatrix4(fm.matrixWorld).project(camera);
      BR.set(1.05,-.75,.008).applyMatrix4(fm.matrixWorld).project(camera);
      const x1=(BL.x+1)/2*innerWidth,x2=(BR.x+1)/2*innerWidth,yb=(1-Math.min(BL.y,BR.y))/2*(canvas.clientHeight||innerHeight);
-     nowEl.style.transform=`translate(${x1}px,${yb}px)`;nowEl.style.width=Math.max(0,x2-x1)+'px';
-     nowEl.style.opacity=String(capA*(noHover?Math.max(0,1-Math.abs(cur-front)*2.2):1)*fm.userData.glass.uniforms.uFade.value*ss(intro,1.15,1.65));}
+     /* 가로 화면: 제목은 화면 왼쪽 끝, 연도는 오른쪽 끝, 맨 앞 판의 세로 가운데 높이 / 세로 화면(모바일): 판 바로 아래 */
+     if(innerWidth>=innerHeight){nowEl.classList.add('side');nowEl.style.transform=`translate(0px,${yb-(x2-x1)/1.4/2}px) translateY(-50%)`;nowEl.style.width='100%'}
+     else{
+       /* 모바일: 캡션은 판에 붙어서 같이 움직임. 판이 바뀔 때 흐려지는 정도만 아주 옅게 */
+       nowEl.classList.remove('side');nowEl.style.transform=`translate(${x1}px,${yb}px)`;nowEl.style.width=Math.max(0,x2-x1)+'px'}
+     const port=innerWidth<innerHeight;
+     nowEl.style.opacity=String(capA*(noHover?(port?Math.max(.75,1-Math.abs(cur-front)*.5):Math.max(0,1-Math.abs(cur-front)*2.2)):1)*fm.userData.glass.uniforms.uFade.value*ss(intro,1.15,1.65));}
     if(sheet.hidden)renderer.render(scene,camera);
     requestAnimationFrame(frame);
   }
