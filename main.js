@@ -307,7 +307,7 @@ function start3D(){
   /* 썸네일 넘기는 속도 — 모바일/데스크탑 따로
      step: 한 장 넘기는 데 필요한 스크롤 (화면 높이 대비, 클수록 느림)
      follow: 판이 따라오는 빠르기 (클수록 빠름) */
-  const SCROLL={mobile:{step:.56,follow:8.5},desktop:{step:.9,follow:2}};
+  const SCROLL={mobile:{step:.56,follow:8.5},desktop:{step:.9,follow:6.5}};
   const camera=new THREE.PerspectiveCamera(32,1,.1,100);const PT=.2301;let pile=null,pOff=null,pZ=1;
   renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
   const geo=new THREE.BoxGeometry(2.1,1.5,.028);
