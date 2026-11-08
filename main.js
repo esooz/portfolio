@@ -3,7 +3,7 @@
 // 이미지: img (썸네일, 7:5 권장), slides: ["./images/a-1.jpg", ...] (상세 페이지 슬라이드, 비우면 썸네일 사용)
 import * as THREE from 'three';
 
-const INTRO_LOGO_SRC="./images/intro-logo.jpg";
+const INTRO_LOGO_SRC="./images/intro-logo.jpg",INTRO_LOGO_DARK_SRC="./images/intro-logo-dark.jpg";
 /* ───────── 도입부 ───────── */
 let stackStart=null;
 function revealStack(){if(stackStart===null)stackStart=performance.now()}
@@ -15,7 +15,9 @@ function revealStack(){if(stackStart===null)stackStart=performance.now()}
   const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const x=cv.getContext('2d');
   let W=0,H=0,box=null,state='idle',t0=0,raf=0;
-  const img=new Image();img.src=INTRO_LOGO_SRC;
+  /* 다크 모드: 어두운 배경(#121212)용 로고로 교체 */
+  const DARK=matchMedia('(prefers-color-scheme: dark)').matches&&document.documentElement.dataset.theme!=='light'||document.documentElement.dataset.theme==='dark';
+  const img=new Image();img.src=DARK?INTRO_LOGO_DARK_SRC:INTRO_LOGO_SRC;
   const ss=(a,b,v)=>{const t=Math.min(1,Math.max(0,(v-a)/(b-a)));return t*t*(3-2*t)};
   function build(){
     const dpr=Math.min(window.devicePixelRatio||1,2);W=innerWidth;H=innerHeight;
@@ -25,7 +27,7 @@ function revealStack(){if(stackStart===null)stackStart=performance.now()}
   function draw(now){
     const t=RM?9:(now-t0)/1000;
     x.globalCompositeOperation='source-over';x.globalAlpha=1;x.clearRect(0,0,W,H);
-    x.globalCompositeOperation='multiply';x.globalAlpha=ss(.15,2,t);x.drawImage(img,box.x,box.y,box.w,box.h);
+    x.globalCompositeOperation=DARK?'source-over':'multiply';x.globalAlpha=ss(.15,2,t);x.drawImage(img,box.x,box.y,box.w,box.h);
     if(t<2.1)raf=requestAnimationFrame(draw);
   }
   function go(){
@@ -302,7 +304,7 @@ function avgTop(cv){
 }
 function start3D(){
   const scene=new THREE.Scene();
-  const camera=new THREE.PerspectiveCamera(32,1,.1,100);const PT=.2301,PF=.525;
+  const camera=new THREE.PerspectiveCamera(32,1,.1,100);const PT=.2301;let pile=null,pOff=null,pZ=1;
   renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
   const geo=new THREE.BoxGeometry(2.1,1.5,.028);
   const aniso=renderer.capabilities.getMaxAnisotropy();
@@ -325,9 +327,17 @@ function start3D(){
     const w=innerWidth,h=canvas.clientHeight||innerHeight;renderer.setSize(w,h,false);camera.aspect=w/h;
     const port=w<h;camera.fov=port?2*Math.atan(PT/camera.aspect)*180/Math.PI:36;
     /* 폰: 주소창 상태(화면 높이)와 상관없이 썸네일 크기는 화면 너비 기준, 위치는 헤더와 푸터 사이 기준으로 고정 */
-    if(port){const hb=document.querySelector('.top').offsetHeight,ft=h-(document.querySelector('.gfoot').offsetHeight||40);camera.setViewOffset(w,h,0,h/2-(hb+(ft-hb)*PF),w,h)}else camera.clearViewOffset();
-    camera.updateProjectionMatrix();DIR.y=w<h?.62:.6;
-    step=h*.65;track.style.height=(h+(N-1)*step)+'px';
+    DIR.y=w<h?.62:.6;camera.zoom=1;camera.clearViewOffset();camera.updateProjectionMatrix();
+    /* 폰: 정지 상태 유리판 묶음의 위·아래 끝을 미리 계산(화면 가운데 기준 px) → 매 프레임 헤더와 푸터 사이 정중앙에 오도록 맞춤 */
+    if(port){
+      camera.position.set(0,.2,7.1);camera.lookAt(0,.3,1.3);camera.updateMatrixWorld();
+      const v=new THREE.Vector3();let top=1e9,bot=-1e9;
+      for(let r=0;r<N;r++)for(const[a,b]of[[-1.05,.75],[1.05,.75],[-1.05,-.75],[1.05,-.75]]){
+        v.set(a,b,0).add(BASE).addScaledVector(DIR,r).project(camera);const y=(1-v.y)/2*h-h/2;
+        if(b>0)top=Math.min(top,y);else if(r===0)bot=Math.max(bot,y)}
+      pile={top,bot};
+    }else pile=null;
+    step=h*(w<h?.56:.65);track.style.height=(h+(N-1)*step)+'px';
     track.innerHTML=projects.map((_,i)=>`<div class="snap" style="top:${i*step}px"></div>`).join('');
     const bg=getComputedStyle(document.documentElement).getPropertyValue('--bg').trim()||'#f6f6f5';
     renderer.setClearColor(bg);haze.set(bg).lerp(new THREE.Color('#e4e4e2'),.55);
@@ -365,10 +375,21 @@ function start3D(){
     const dt=Math.min((now-last)/1000,.05)||.016;last=now;
     const damp=r=>reduce?1:1-Math.exp(-dt*r);
     const target=cl(scrollY/step,0,N-1);
-    const prev=cur;cur+=(target-cur)*damp(7);
+    const prev=cur;cur+=(target-cur)*damp(innerWidth<innerHeight?8.5:7);
     vel+=((cur-prev)/dt-vel)*damp(6);
     cmx+=(mx-cmx)*damp(2.5);cmy+=(my-cmy)*damp(2.5);
     camera.position.set(0,.2,camera.aspect<1?7.1:6.3);camera.lookAt(0,camera.aspect<1?.3:.15,1.3);
+    /* 폰: 헤더 선 ~ 푸터 선 사이(주소창이 접히든 펴지든 지금 보이는 영역)의 정중앙에 썸네일+캡션 묶음을 놓고,
+       공간이 모자라면 살짝 줄임. 주소창이 움직일 땐 튀지 않고 부드럽게 따라감 */
+    if(pile){
+      const W=innerWidth,Hc=canvas.clientHeight||innerHeight,ct=canvas.getBoundingClientRect().top;
+      const hb=document.querySelector('.top').getBoundingClientRect().bottom-ct;
+      const fr=document.querySelector('.gfoot').getBoundingClientRect(),ft=(fr.height?fr.top:innerHeight)-ct;
+      const CAP=(nowEl.offsetHeight||22)+4,region=ft-hb,H0=pile.bot-pile.top;
+      const z=Math.min(1,(region*.92-CAP)/H0),off=Hc/2+(z*(pile.top+pile.bot)+CAP)/2-(hb+ft)/2;
+      if(pOff===null){pOff=off;pZ=z}else{pOff+=(off-pOff)*damp(5);pZ+=(z-pZ)*damp(5)}
+      camera.zoom=pZ;camera.setViewOffset(W,Hc,0,pOff,W,Hc);camera.updateProjectionMatrix();
+    }
 
     const f=Math.round(cur);
     if(f!==front){front=f}

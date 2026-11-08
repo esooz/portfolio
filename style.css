@@ -158,6 +158,8 @@ img,canvas{-webkit-user-drag:none;-webkit-touch-callout:none;user-select:none;-w
 .dslides img,.dslides video,.iglass img{pointer-events:none}
 #intro{position:fixed;inset:0;z-index:20;background:#fff;transition:opacity .4s cubic-bezier(.45,0,.25,1);cursor:pointer}
 #intro.out{opacity:0;pointer-events:none}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) #intro{background:#121212}}
+:root[data-theme="dark"] #intro{background:#121212}
 #intro canvas{position:absolute;inset:0;display:block}
 @media (max-width:560px){
   .sheet.glass{padding:calc(env(safe-area-inset-top,0px) + var(--hh) - 1px) 0 calc(var(--fs)*1.2 + 38px)}
