@@ -48,7 +48,7 @@ const projects = [
   {id:"cryptids", title:"CRYPTIDS", year:"Fall 2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/cryptids.jpg",
    desc:"프로젝트 설명을 입력하세요.", c:["#2b2b2b", "#d8d8d4"], motif:"n"},
   {id:"nuflaat", title:"NUFLAAT CRACKER CAMPAIGN", year:"Fall 2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal",
-   slides:["./images/nuflaat-1.jpg", "./images/nuflaat-2.jpg", "./images/nuflaat-3.jpg", "./images/nuflaat-4.jpg"], img:"./images/nuflaat-thumb.jpg",
+   slides:["./images/nuflaat-1.jpg?v=2", "./images/nuflaat-2.jpg?v=2", "./images/nuflaat-3.jpg?v=2", "./images/nuflaat-4.jpg?v=2"], img:"./images/nuflaat-thumb.jpg?v=2",
    desc:"프로젝트 설명을 입력하세요.", c:["#e9dfcc", "#3b2b22"], motif:"rows"},
   {id:"narrative-of-layer", title:"NARRATIVE OF LAYER", year:"2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:["./images/narrative-of-layer-1.jpg", "./images/narrative-of-layer-2.jpg", "./images/narrative-of-layer-3.jpg"], img:"./images/narrative-of-layer.jpg",
    desc:"프로젝트 설명을 입력하세요.", c:["#c9cfdb", "#2e3442"], motif:"stack"},
