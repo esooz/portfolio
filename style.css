@@ -42,7 +42,8 @@ html{scroll-snap-type:y proximity}
 .views button[aria-pressed="true"]{color:var(--ink)}
 .gfoot{position:fixed;z-index:6;left:0;right:0;bottom:0;padding:var(--fp) 16px calc(env(safe-area-inset-bottom,0px) + var(--fp));display:flex;justify-content:center;gap:clamp(8px,.86vw,16px);background:var(--bg);border-top:1px solid var(--ink);font-size:var(--fs);line-height:1.2}
 .gfoot a:hover,.ifoot a:hover{color:var(--mute)}
-.is-index:not(.is-detail) .gfoot,.is-index .now{display:none}
+/* GRID에서도 하단 탭 고정 */
+.is-index .now{display:none}
 .now{position:fixed;z-index:5;left:0;top:0;padding-top:max(5px,.45vw);pointer-events:none;will-change:transform,opacity;opacity:0}
 .now button{display:flex;justify-content:space-between;width:100%;gap:1em;font-size:var(--fs);line-height:1.2;pointer-events:auto;text-align:left}
 .now button:hover{color:var(--mute)}
@@ -60,7 +61,7 @@ html{scroll-snap-type:y proximity}
 .sheet{position:fixed;z-index:4;left:14px;right:14px;top:calc(env(safe-area-inset-top,0px) + 74px);bottom:calc(env(safe-area-inset-bottom,0px) + 74px);overflow:auto;padding:8px 20px;border-radius:20px}
 .sheet[hidden]{display:none}
 .sheet.glass{inset:0;top:0;bottom:0;left:0;right:0;border-radius:0;border:0;background:var(--bg);-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none;
-  padding:calc(env(safe-area-inset-top,0px) + var(--hh) - 1px) 0 0}
+  padding:calc(env(safe-area-inset-top,0px) + var(--hh) - 1px) 0 calc(env(safe-area-inset-bottom,0px) + var(--fp)*2 + var(--fs)*1.2 + 12px)}
 .is-index .now,.is-index .hint{display:none}
 .igrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:max(16px,1.64vw) max(6px,.6vw)}
 @media (max-width:900px){.igrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -130,14 +131,24 @@ dialog::backdrop{background:color-mix(in srgb,var(--bg) 25%,transparent);-webkit
 .dshow{position:relative;width:calc(min(67.7%,calc((100svh - var(--hh) - max(10px,1.1vw) - 6.4em - var(--fp)*2 - 22px)*1.51))*.945);margin:2px auto 0;aspect-ratio:1612/1068}
 .dshow.multi{cursor:e-resize}
 .dshow.multi.left{cursor:w-resize}
-.dslides img,.dslides .dvid{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;opacity:0;transition:opacity .18s ease}
+.dslides>img,.dslides>.dvid,.dslides>.dgal{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;opacity:0;transition:opacity .18s ease}
 .dvid video{display:block;width:100%;height:100%;object-fit:contain}
-.dslides img.fill,.dslides .dvid.fill video{object-fit:cover}
+.dslides>img.fill,.dslides>.dvid.fill video{object-fit:cover}
 /* 아이폰 사파리가 영상 가장자리에 1px 배경색 선을 그리는 문제 → 영상을 살짝 키우고 바깥을 잘라 숨김 */
 .dvid{overflow:hidden}
 .dvid video{transform:scale(1.012);transform-origin:50% 50%}
-.dslides .dvid:not(.on){pointer-events:none}
-.dslides img.on,.dslides .dvid.on{opacity:1}
+.dslides>.dvid:not(.on),.dslides>.dgal:not(.on){pointer-events:none}
+.dslides>img.on,.dslides>.dvid.on,.dslides>.dgal.on{opacity:1}
+/* 갤러리 슬라이드: 틀 안에서 세로 스크롤, 양옆 살짝 여백, 5열 */
+.dslides>.dgal{overflow:hidden;padding:0 3.5%;display:flex;align-items:center;justify-content:center}
+.dslides>.dgal::-webkit-scrollbar{display:none}
+.dgal-in{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.dgi{display:block;padding:0;border:0;background:none;cursor:zoom-in}
+.dgi img{display:block;width:100%;aspect-ratio:2480/3508;object-fit:contain}
+/* 크게 보기 */
+.lb{position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;background:var(--bg);cursor:zoom-out;padding:calc(env(safe-area-inset-top,0px) + 16px) 16px calc(env(safe-area-inset-bottom,0px) + 16px)}
+.lb[hidden]{display:none}
+.lb img{max-width:100%;max-height:100%;object-fit:contain;display:block}
 .dfoot{display:none}
 .dback,.dnext,.dfoot a{display:inline-flex;align-items:center;gap:.6em;white-space:nowrap}
 .arr{width:4.2em;height:auto;aspect-ratio:523.38/65.46;flex:none;display:block}
@@ -149,7 +160,10 @@ dialog::backdrop{background:color-mix(in srgb,var(--bg) 25%,transparent);-webkit
   .dtitle div,.dinfo div{white-space:normal}
   .dgap{display:none}
   .dshow{width:100%;aspect-ratio:auto;margin:0}
-  .dslides img,.dslides .dvid{position:static;width:100%;opacity:1;height:auto;margin:0}
+  .dslides>img,.dslides>.dvid,.dslides>.dgal{position:static;width:100%;opacity:1;height:auto;margin:0}
+  .dslides>.dgal{overflow:visible;padding:4px 6px;display:block}
+  .dslides>.dgal,.dslides>.dgal:not(.on){pointer-events:auto}
+  .dgal-in{grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}
   .dslides .dvid{position:relative;pointer-events:auto}
   .dvid video{height:auto}
   .dfoot{display:flex;justify-content:space-between;align-items:center;position:fixed;left:0;right:0;z-index:6;bottom:calc(max(9px,env(safe-area-inset-bottom,0px)) + 9px + var(--fs)*1.2 + 13px);padding:0 6px;font-size:max(13px,var(--fs));pointer-events:none}
@@ -168,7 +182,6 @@ img,canvas{-webkit-user-drag:none;-webkit-touch-callout:none;user-select:none;-w
   .gfoot{padding:9px 16px}
   .icap{padding:max(5px,.45vw) 3px 0}
   .ifoot{display:none}
-  .is-index:not(.is-detail) .gfoot{display:flex}
 }
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .nav,.views,.now,.tip{box-shadow:none}

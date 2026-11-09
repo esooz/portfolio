@@ -63,7 +63,7 @@ const projects = [
    desc:"프로젝트 설명을 입력하세요.", c:["#0d0d0d", "#5f8079"], motif:"cover"},
   {id:"untitled-01", title:"UNTITLED 01", year:"2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/untitled-01.jpg",
    desc:"프로젝트 설명을 입력하세요.", c:["#cccccc","#333333"], motif:"n"},
-  {id:"untitled-02", title:"UNTITLED 02", year:"2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/untitled-02.jpg",
+  {id:"interwoven-time-2", title:"INTERWOVEN TIME", year:"Winter 2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:["./images/interwoven2-1.jpg", "./images/interwoven2-2.jpg", "./images/interwoven2-3.jpg", "./images/interwoven2-4.mp4", "./images/interwoven2-5.jpg?v=2", "./images/interwoven2-6.jpg?v=2", "./images/interwoven2-7.mp4", "./images/interwoven2-8.jpg"], img:"./images/interwoven2-thumb.jpg?v=3",
    desc:"프로젝트 설명을 입력하세요.", c:["#cccccc","#333333"], motif:"n"},
   {id:"samsung-galaxy-unpacked", title:"SAMSUNG GALAXY UNPACKED", year:"2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal",
    slides:["./images/samsung-1.mp4"], img:"./images/samsung-thumb.jpg?v=2",
@@ -122,8 +122,7 @@ const sheet=$('#indexSheet'),detail=$('#detail'),info=$('#info'),tip=$('#tip');
 const panel={get open(){return !detail.hidden},close(){detail.querySelectorAll('video').forEach(v=>v.pause());detail.hidden=true;document.body.classList.remove('is-detail')}};
 let lastList='top',slideAt=0,slideN=1;
 function buildIndex(){
-  sheet.innerHTML=`<div class="igrid">${projects.map(p=>`<button class="icard" data-id="${p.id}"><div class="iglass"><canvas></canvas><img alt=""></div><div class="icap"><span>${p.title}</span><span>(${p.year})</span></div></button>`).join('')}</div>
-  <footer class="ifoot"><a href="#about">CV/RESUME</a><span>|</span><a href="https://www.instagram.com/" target="_blank" rel="noopener">INSTAGRAM</a><span>|</span><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LINKEDIN</a></footer>`;
+  sheet.innerHTML=`<div class="igrid">${projects.map(p=>`<button class="icard" data-id="${p.id}"><div class="iglass"><canvas></canvas><img alt=""></div><div class="icap"><span>${p.title}</span><span>(${p.year})</span></div></button>`).join('')}</div>`;
 }
 function fillImgs(){sheet.classList.add('noglass');sheet.querySelectorAll('.icard img').forEach((im,i)=>{im.src=arts[i].toDataURL('image/jpeg',.85)})}
 let drawThumbs=null;
@@ -141,15 +140,16 @@ function openProject(id){
     <div class="dinfo">${info4.map(x=>`<div>${x[0]} : ${x[1]}</div>`).join('')}</div>
     <a class="dnext" href="#${nx.id}" aria-label="Next Project"><svg class="arr" viewBox="0 0 523.38 65.46" aria-hidden="true"><line y1="32.73" x2="339.66" y2="32.73" stroke="currentColor" stroke-width="10.91"/><path fill="currentColor" d="M486.84,29.52c25.86,1.48,36.43,2.2,36.54,3.21-.11,1.01-10.7,1.4-36.54,3.21-127.37,8.91-147.18,29.52-147.18,29.52V0s19.41,22.23,147.18,29.52Z"/></svg></a>
   </div>
-  <div class="dshow${slides.length>1?' multi':''}"><div class="dslides">${slides.map((s,k)=>/\.(mp4|webm|mov)($|\?)|^data:video/i.test(s)?`<div class="dvid${k?'':' on'}"><video src="${s}" muted loop playsinline preload="auto" aria-label="${p.title} ${k+1}"></video></div>`:`<img draggable="false" src="${s}" alt="${p.title} ${k+1}"${k?'':' class="on"'}>`).join('')}</div>
+  <div class="dshow${slides.length>1?' multi':''}"><div class="dslides">${slides.map((s,k)=>s&&s.gallery?`<div class="dgal${k?'':' on'}"><div class="dgal-in">${s.gallery.map((g,j)=>`<button class="dgi" type="button" data-j="${j}" aria-label="${p.title} ${j+1} 크게 보기"><img loading="lazy" draggable="false" src="${g}" alt=""></button>`).join('')}</div></div>`:/\.(mp4|webm|mov)($|\?)|^data:video/i.test(s)?`<div class="dvid${k?'':' on'}"><video src="${s}" muted loop playsinline preload="auto" aria-label="${p.title} ${k+1}"></video></div>`:`<img draggable="false" src="${s}" alt="${p.title} ${k+1}"${k?'':' class="on"'}>`).join('')}</div>
     </div>
   <div class="dfoot"><span></span><a href="#${pv.id}" aria-label="Previous Project"><svg class="arr" viewBox="0 0 523.38 65.46" aria-hidden="true"><line x1="523.38" y1="32.73" x2="183.72" y2="32.73" stroke="currentColor" stroke-width="10.91"/><path fill="currentColor" d="M36.54,29.52C10.68,31,.11,31.72,0,32.73c.11,1.01,10.7,1.4,36.54,3.21,127.37,8.91,147.18,29.52,147.18,29.52V0s-19.41,22.23-147.18,29.52Z"/></svg></a><a href="#${nx.id}" aria-label="Next Project"><svg class="arr" viewBox="0 0 523.38 65.46" aria-hidden="true"><line y1="32.73" x2="339.66" y2="32.73" stroke="currentColor" stroke-width="10.91"/><path fill="currentColor" d="M486.84,29.52c25.86,1.48,36.43,2.2,36.54,3.21-.11,1.01-10.7,1.4-36.54,3.21-127.37,8.91-147.18,29.52-147.18,29.52V0s19.41,22.23,147.18,29.52Z"/></svg></a></div>`;
   slideAt=0;slideN=slides.length;
   /* 웹: 지금 화면에 띄워진 슬라이드의 영상만 재생(소리 포함), 나머지는 멈춤 / 모바일: 전부 재생, 소리는 화면에 보이는 만큼만 */
   detail.querySelectorAll('.dslides video').forEach(v=>{const sl=v.closest('.dvid');if(isMob()||(sl&&sl.classList.contains('on')))playVid(v,true);else{setVol(v);v.pause()}});
   requestAnimationFrame(mobVolumes);
+  requestAnimationFrame(()=>requestAnimationFrame(fitGalleries));
   /* 가로형 이미지·영상은 틀을 꽉 채움(양옆 여백 없음), 세로형은 잘리지 않게 가운데 */
-  detail.querySelectorAll('.dslides img,.dslides video').forEach(m=>{const f=()=>{const w=m.naturalWidth||m.videoWidth,h=m.naturalHeight||m.videoHeight;if(w&&h){const el=m.closest('.dvid')||m;el.classList.toggle('fill',w>=h);if(w/h>1.52&&el===el.parentNode.firstElementChild){const sh=el.closest('.dshow');if(sh&&!matchMedia('(max-width:700px)').matches)sh.style.aspectRatio=w+'/'+h}}};if(m.complete||m.readyState>0)f();m.addEventListener('load',f);m.addEventListener('loadedmetadata',f)});
+  detail.querySelectorAll('.dslides>img,.dslides>.dvid video').forEach(m=>{const f=()=>{const w=m.naturalWidth||m.videoWidth,h=m.naturalHeight||m.videoHeight;if(w&&h){const el=m.closest('.dvid')||m;el.classList.toggle('fill',w>=h);if(w/h>1.52&&el===el.parentNode.firstElementChild){const sh=el.closest('.dshow');if(sh&&!matchMedia('(max-width:700px)').matches)sh.style.aspectRatio=w+'/'+h}}};if(m.complete||m.readyState>0)f();m.addEventListener('load',f);m.addEventListener('loadedmetadata',f)});
   if(info.open)info.close();
   detail.hidden=false;document.body.classList.add('is-detail');detail.scrollTop=0;
 }
@@ -203,13 +203,38 @@ function armUnmute(){
       setVol(v);if(!canSound(v))return;if(isMob())mobVolumes();v.muted=false;v.play().catch(()=>{v.muted=true})}})};
   ['pointerdown','touchend','keydown'].forEach(t=>addEventListener(t,on,true));
 }
-function goSlide(d){
+function goSlide(d){fitGalleries();
   const imgs=detail.querySelectorAll('.dslides > *');if(imgs.length<2)return;
   slideAt=(slideAt+d+imgs.length)%imgs.length;
   imgs.forEach((im,k)=>{im.classList.toggle('on',k===slideAt);const v=im.querySelector&&im.querySelector('video');if(v){if(k===slideAt){v.currentTime=0;playVid(v,true)}else v.pause()}});
   const c=detail.querySelector('.dcount span');if(c)c.textContent=slideAt+1;
 }
+/* 갤러리: 데스크탑에서는 스크롤 없이 모든 이미지가 틀 안에 잘리지 않고 다 들어가도록
+   열 수를 자동으로 골라 가장 크게 배치 */
+function fitGalleries(){
+  detail.querySelectorAll('.dgal').forEach(g=>{
+    const inn=g.querySelector('.dgal-in');
+    if(isMob()){inn.style.cssText='';return}
+    const n=inn.children.length,G=6,R=2480/3508,cs=getComputedStyle(g);
+    const W=g.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight),H=g.clientHeight;
+    if(!W||!H)return;let best=0,bc=1;
+    for(let c=1;c<=n;c++){const r=Math.ceil(n/c),w=Math.min((W-(c-1)*G)/c,((H-(r-1)*G)/r)*R);if(w>best){best=w;bc=c}}
+    inn.style.gridTemplateColumns=`repeat(${bc},${best}px)`;inn.style.gap=G+'px';
+  });
+}
+addEventListener('resize',fitGalleries);
+/* 갤러리(이미지 쭉 나열): 이미지 클릭 → 크게 보기. 클릭/ESC로 닫기, ←/→로 옆 이미지 */
+const lb=document.createElement('div');lb.className='lb';lb.hidden=true;lb.innerHTML='<img alt="">';document.body.appendChild(lb);
+let lbList=[],lbAt=0;
+function lbShow(i){lbAt=(i+lbList.length)%lbList.length;lb.querySelector('img').src=lbList[lbAt]}
+function lbOpen(list,i){lbList=list;lbShow(i);lb.hidden=false;document.body.classList.add('is-lb')}
+function lbClose(){lb.hidden=true;document.body.classList.remove('is-lb')}
+lb.addEventListener('click',lbClose);
+addEventListener('keydown',e=>{if(lb.hidden)return;e.stopImmediatePropagation();e.preventDefault();
+  if(e.key==='Escape')lbClose();else if(e.key==='ArrowRight')lbShow(lbAt+1);else if(e.key==='ArrowLeft')lbShow(lbAt-1)},true);
 detail.addEventListener('click',e=>{
+  const gi=e.target.closest('.dgi');
+  if(gi){e.stopPropagation();const gal=gi.closest('.dgal');lbOpen([...gal.querySelectorAll('.dgi img')].map(i=>i.currentSrc||i.src),+gi.dataset.j);return}
   const sh=e.target.closest('.dshow');if(!sh||matchMedia('(max-width:700px)').matches)return;
   const r=sh.getBoundingClientRect();goSlide(e.clientX<r.left+r.width/2?-1:1);
 });
@@ -373,7 +398,7 @@ function start3D(){
   /* 트랙패드: 맨 위·맨 아래 끝에서 더 밀어도 화면이 튕기거나(헤더가 밀려 사라짐) 새로고침되지 않게 */
   addEventListener('wheel',e=>{
     if(Math.abs(e.deltaY)<=Math.abs(e.deltaX))return;
-    const el=(e.target.closest&&e.target.closest('.detail:not([hidden]),.sheet:not([hidden])'))||document.scrollingElement;
+    const el=(e.target.closest&&e.target.closest('.dgal.on,.detail:not([hidden]),.sheet:not([hidden])'))||document.scrollingElement;
     const t=el.scrollTop,atTop=t<=0,atBot=t+el.clientHeight>=el.scrollHeight-1;
     if((atTop&&e.deltaY<0)||(atBot&&e.deltaY>0))e.preventDefault();
   },{passive:false});
