@@ -48,29 +48,29 @@ const projects = [
   {id:"cryptids", title:"CRYPTIDS", year:"Fall 2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/cryptids.jpg",
    desc:"프로젝트 설명을 입력하세요.", c:["#2b2b2b", "#d8d8d4"], motif:"n"},
   {id:"nuflaat", title:"NUFLAAT CRACKER CAMPAIGN", year:"Fall 2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal",
-   slides:["./images/nuflaat-1.jpg?v=2", "./images/nuflaat-2.jpg?v=2", "./images/nuflaat-3.jpg?v=2", "./images/nuflaat-4.jpg?v=2"], img:"./images/nuflaat-thumb.jpg?v=2",
+   slides:["./images/nuflaat-1.jpg?v=5", "./images/nuflaat-2.jpg?v=5", "./images/nuflaat-3.jpg?v=5", "./images/nuflaat-4.jpg?v=5"], img:"./images/nuflaat-thumb.jpg?v=3", crack:"./images/nuflaat-crack.jpg?v=6",
    desc:"프로젝트 설명을 입력하세요.", c:["#e9dfcc", "#3b2b22"], motif:"rows"},
-  {id:"narrative-of-layer", title:"NARRATIVE OF LAYER", year:"2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:["./images/narrative-of-layer-1.jpg", "./images/narrative-of-layer-2.jpg", "./images/narrative-of-layer-3.jpg"], img:"./images/narrative-of-layer.jpg",
+  {id:"narrative-of-layer", title:"NARRATIVE OF LAYER", year:"Fall 2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:["./images/narrative-of-layer-1.jpg", "./images/narrative-of-layer-2.jpg", "./images/narrative-of-layer-3.jpg"], img:"./images/narrative-of-layer.jpg?v=4", crack:"./images/narrative-of-layer-crack.jpg",
    desc:"프로젝트 설명을 입력하세요.", c:["#c9cfdb", "#2e3442"], motif:"stack"},
   {id:"oclyn", title:"OCLYN", year:"Winter 2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/oclyn.jpg",
    desc:"프로젝트 설명을 입력하세요.", c:["#f2f2f2", "#1a1a1a"], motif:"wave"},
   {id:"interwoven-time", title:"INTERWOVEN TIME", year:"Winter 2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/interwoven-time.jpg",
    desc:"프로젝트 설명을 입력하세요.", c:["#eef1e6", "#4a4a55"], motif:"disc"},
   {id:"the-point-of-collection", title:"THE POINT OF COLLECTION", year:"Fall 2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal",
-   slides:["./images/the-point-of-collection-1.mp4?v=2", "./images/the-point-of-collection-2.jpg", "./images/the-point-of-collection-3.jpg"], img:"./images/the-point-of-collection-thumb.jpg",
+   slides:["./images/the-point-of-collection-1.mp4?v=2", "./images/the-point-of-collection-2.jpg", "./images/the-point-of-collection-3.jpg"], img:"./images/the-point-of-collection-thumb.jpg", crack:"./images/the-point-of-collection-crack.jpg",
    desc:"프로젝트 설명을 입력하세요.", c:["#f2f2f2", "#1a1a1a"], motif:"stamp"},
-  {id:"hatching-tomorrow", title:"HATCHING TOMORROW", year:"Winter 2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/hatching-tomorrow.jpg",
+  {id:"hatching-tomorrow", title:"HATCHING TOMORROW", year:"Winter 2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/hatching-tomorrow.jpg?v=4", crack:"./images/hatching-tomorrow-crack.jpg?v=2",
    desc:"프로젝트 설명을 입력하세요.", c:["#0d0d0d", "#5f8079"], motif:"cover"},
   {id:"untitled-01", title:"UNTITLED 01", year:"2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/untitled-01.jpg",
    desc:"프로젝트 설명을 입력하세요.", c:["#cccccc","#333333"], motif:"n"},
-  {id:"interwoven-time-2", title:"INTERWOVEN TIME", year:"Winter 2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:["./images/interwoven2-1.jpg", "./images/interwoven2-2.jpg", "./images/interwoven2-3.jpg", "./images/interwoven2-4.mp4", "./images/interwoven2-5.jpg?v=2", "./images/interwoven2-6.jpg?v=2", "./images/interwoven2-7.mp4", "./images/interwoven2-8.jpg"], img:"./images/interwoven2-thumb.jpg?v=3",
+  {id:"interwoven-time-2", title:"INTERWOVEN TIME", year:"Winter 2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:["./images/interwoven2-1.jpg", "./images/interwoven2-2.jpg", "./images/interwoven2-3.jpg", "./images/interwoven2-4.mp4", "./images/interwoven2-5.jpg?v=2", "./images/interwoven2-6.jpg?v=2", "./images/interwoven2-7.mp4", "./images/interwoven2-8.jpg"], img:"./images/interwoven2-thumb.jpg?v=3", crack:"./images/interwoven2-crack.jpg?v=9",
    desc:"프로젝트 설명을 입력하세요.", c:["#cccccc","#333333"], motif:"n"},
   {id:"samsung-galaxy-unpacked", title:"SAMSUNG GALAXY UNPACKED", year:"2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal",
-   slides:["./images/samsung-1.mp4"], img:"./images/samsung-thumb.jpg?v=2",
+   slides:["./images/samsung-1.mp4"], img:"./images/samsung-thumb.jpg?v=2", crack:"./images/samsung-crack.jpg?v=8",
    desc:"프로젝트 설명을 입력하세요.", c:["#cccccc","#333333"], motif:"n"},
-  {id:"blackpink-go", title:"BLACKPINK “GO” M/V", year:"2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:["./images/blackpink-1.jpg", "./images/blackpink-2.mp4?v=3", "./images/blackpink-3.jpg", "./images/blackpink-4.jpg", "./images/blackpink-5.jpg", "./images/blackpink-6.jpg", "./images/blackpink-7.jpg", "./images/blackpink-8.jpg", "./images/blackpink-9.jpg", "./images/blackpink-10.jpg"], img:"./images/blackpink-thumb.jpg",
+  {id:"blackpink-go", title:"BLACKPINK “GO” M/V", year:"2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:["./images/blackpink-1.jpg", "./images/blackpink-2.mp4?v=3", "./images/blackpink-3.jpg", "./images/blackpink-4.jpg", "./images/blackpink-5.jpg", "./images/blackpink-6.jpg", "./images/blackpink-7.jpg", "./images/blackpink-8.jpg", "./images/blackpink-9.jpg", "./images/blackpink-10.jpg"], img:"./images/blackpink-thumb.jpg", crack:"./images/blackpink-crack.jpg?v=2",
    desc:"프로젝트 설명을 입력하세요.", c:["#cccccc","#333333"], motif:"n"},
-  {id:"untitled-05", title:"UNTITLED 05", year:"2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/untitled-05.jpg",
+  {id:"coilisim", title:"COILISIM 蝸殼敎", year:"Summer 2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:["./images/coilisim-1.jpg", "./images/coilisim-2.jpg", "./images/coilisim-3.jpg", "./images/coilisim-4.jpg", "./images/coilisim-5.jpg", "./images/coilisim-6.jpg", "./images/coilisim-7.jpg", "./images/coilisim-8.jpg", "./images/coilisim-9.jpg", "./images/coilisim-10.jpg", "./images/coilisim-11.jpg"], img:"./images/untitled-05.jpg",
    desc:"프로젝트 설명을 입력하세요.", c:["#cccccc","#333333"], motif:"n"}
 ];
 const N = projects.length;
@@ -114,7 +114,7 @@ function paintArt(p,i){
 function coverDraw(cv,img){const x=cv.getContext('2d'),W=cv.width,H=cv.height,s=Math.max(W/img.width,H/img.height);
   x.drawImage(img,(W-img.width*s)/2,(H-img.height*s)/2,img.width*s,img.height*s)}
 
-const arts=[],thumbs=[];
+const arts=[],thumbs=[],crackArts=[];
 
 /* ───────── UI ───────── */
 const $=s=>document.querySelector(s);
@@ -126,7 +126,13 @@ function buildIndex(){
 }
 function fillImgs(){sheet.classList.add('noglass');sheet.querySelectorAll('.icard img').forEach((im,i)=>{im.src=arts[i].toDataURL('image/jpeg',.85)})}
 let drawThumbs=null;
-sheet.addEventListener('click',e=>{const r=e.target.closest('.icard');if(r)location.hash=r.dataset.id});
+sheet.addEventListener('click',e=>{const r=e.target.closest('.icard');if(!r)return;
+  const p=projects.find(q=>q.id===r.dataset.id),g=r.querySelector('.iglass');
+  /* GRID에서도 유리 깨짐 */
+  if(p&&p.crack&&g&&!reduce){if(r.classList.contains('shatter'))return;
+    const ca=crackArts[projects.indexOf(p)],ov=document.createElement(ca?'canvas':'img');ov.className='crack-ov';if(ca){ov.width=ca.width;ov.height=ca.height;ov.getContext('2d').drawImage(ca,0,0)}else ov.src=p.crack;g.appendChild(ov);r.classList.add('shatter');
+    setTimeout(()=>{location.hash=r.dataset.id},620);setTimeout(()=>{ov.remove();r.classList.remove('shatter')},1300);return}
+  location.hash=r.dataset.id});
 document.querySelector('.views').addEventListener('click',e=>{const b=e.target.closest('[data-view]');if(!b)return;location.hash=b.dataset.view==='index'?'index':'top'});
 function setView(v){document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.view===v));sheet.hidden=v!=='index';document.body.classList.toggle('is-index',v==='index');if(v==='index'&&drawThumbs)requestAnimationFrame(drawThumbs)}
 
@@ -261,7 +267,7 @@ window.addEventListener('hashchange',route);
 /* ───────── 3D 매트 유리판 스택 ───────── */
 const VS=`varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`;
 const FS=`precision highp float;
-uniform sampler2D map;uniform float uHover,uFade,uDim,uEdge;uniform vec3 uEC;uniform vec3 uHaze;varying vec2 vUv;
+uniform sampler2D map;uniform float uHover,uFade,uDim,uEdge,uRaw;uniform vec3 uEC;uniform vec3 uHaze;varying vec2 vUv;
 vec3 blur(vec2 uv,float lod,float r){
  vec3 c=texture2D(map,uv,lod).rgb*.2;
  c+=texture2D(map,uv+vec2(r,0.),lod).rgb*.1;
@@ -292,6 +298,8 @@ void main(){
  float f=clamp(tb/T,0.,1.);
  float S=T*1.3*(1.-f);
  float cut=(1.-smoothstep(S-aa,S+aa,min(uv.x,1.-uv.x)*1.4))*bevel;
+ /* 유리 깨짐 이미지: 뿌연 효과 없이 원본 그대로, 투명도는 마우스 올렸을 때와 같음 */
+ col=mix(col,texture2D(map,uv).rgb,uRaw);
  vec3 ec=uEC;
  vec3 fc=mix(mix(ec,vec3(1.),.25),ec*.82,f);
  col=mix(col,fc,bevel*.55);
@@ -311,6 +319,8 @@ async function boot(){
     const cv=paintArt(projects[i],i);
     if(projects[i].img){try{const im=new Image();im.crossOrigin='anonymous';im.src=projects[i].img;await im.decode();coverDraw(cv,im)}catch(e){}}
     arts.push(cv);
+    /* 클릭 시 '유리 깨짐' 이미지가 있는 프로젝트 */
+    if(projects[i].crack){try{const c2=document.createElement('canvas');c2.width=cv.width;c2.height=cv.height;const im2=new Image();im2.src=projects[i].crack;await im2.decode();coverDraw(c2,im2);crackArts[i]=c2}catch(e){}}
     const t=document.createElement('canvas');t.width=144;t.height=108;t.getContext('2d').drawImage(cv,33,0,1333,1000,0,0,144,108);thumbs.push(t.toDataURL('image/jpeg',.8));
   }
   buildIndex();
@@ -332,6 +342,8 @@ function start3D(){
   /* 썸네일 넘기는 속도 — 모바일/데스크탑 따로
      step: 한 장 넘기는 데 필요한 스크롤 (화면 높이 대비, 클수록 느림)
      follow: 판이 따라오는 빠르기 (클수록 빠름) */
+  /* 맨 앞 판 선명도 (0=다른 판과 같음, 1=마우스 올렸을 때만큼 선명) — 데스크탑 / 모바일 따로 */
+  const FRONT_CLEAR=0,FRONT_CLEAR_MOBILE=.45;
   const SCROLL={mobile:{step:.56,follow:8.5},desktop:{step:.9,follow:6.5}};
   const camera=new THREE.PerspectiveCamera(32,1,.1,100);const PT=.2301;let pile=null,pOff=null,pZ=1;
   renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
@@ -344,7 +356,7 @@ function start3D(){
   const meshes=projects.map((p,i)=>{
     const tex=new THREE.CanvasTexture(arts[i]);
     tex.generateMipmaps=true;tex.minFilter=THREE.LinearMipmapLinearFilter;tex.anisotropy=aniso;
-    const glass=new THREE.ShaderMaterial({uniforms:{map:{value:tex},uHover:{value:0},uFade:{value:0},uDim:{value:0},uEdge:{value:1},uEC:{value:avgTop(arts[i])},uHaze:{value:haze}},vertexShader:VS,fragmentShader:FS,transparent:true,depthWrite:false});
+    const glass=new THREE.ShaderMaterial({uniforms:{map:{value:tex},uRaw:{value:0},uHover:{value:0},uFade:{value:0},uDim:{value:0},uEdge:{value:1},uEC:{value:avgTop(arts[i])},uHaze:{value:haze}},vertexShader:VS,fragmentShader:FS,transparent:true,depthWrite:false});
     const side=new THREE.MeshBasicMaterial({color:avgColor(arts[i]),transparent:true,opacity:0,depthWrite:false});
     const mesh=new THREE.Mesh(geo,[side,side,side,side,glass,glass]);
     mesh.rotation.y=ROT;mesh.userData={i,h:0,d:0,glass,side};deck.add(mesh);return mesh;
@@ -387,7 +399,15 @@ function start3D(){
     /* 탭/클릭한 그 지점에서 바로 판을 찾음 (터치는 hover 상태를 쓰지 않음) */
     ray.setFromCamera(new THREE.Vector2(e.clientX/innerWidth*2-1,-(e.clientY/(canvas.clientHeight||innerHeight))*2+1),camera);
     const hs=ray.intersectObjects(meshes.filter(m=>m.visible&&m.userData.glass.uniforms.uFade.value>.3)),h=hs.length?hs[0].object:null;
-    if(!h)return;picked=h;const id=projects[h.userData.i].id;setTimeout(()=>{location.hash=id;picked=null},reduce?0:340)});
+    if(!h)return;picked=h;const id=projects[h.userData.i].id;
+    /* 유리 깨짐: 판 이미지를 금 간 이미지로 바꾸고 아주 미세하게 떨린 뒤 열림 */
+    const ca=crackArts[h.userData.i];
+    if(ca&&!reduce){const U=h.userData.glass.uniforms,orig=U.map.value;
+      if(!h.userData.crackTex){const ct=new THREE.CanvasTexture(ca);ct.colorSpace=orig.colorSpace;ct.anisotropy=orig.anisotropy;h.userData.crackTex=ct}
+      U.map.value=h.userData.crackTex;U.uRaw.value=1;h.userData.crackT=performance.now();
+      setTimeout(()=>{location.hash=id;picked=null},720);
+      setTimeout(()=>{U.map.value=orig;U.uRaw.value=0;h.userData.crackT=0},1400);return}
+    setTimeout(()=>{location.hash=id;picked=null},reduce?0:340)});
   $('#nowOpen').onclick=()=>{location.hash=projects[(capM||meshes[front]).userData.i].id};
   addEventListener('keydown',e=>{
     if(panel.open||info.open||!sheet.hidden)return;
@@ -448,11 +468,12 @@ function start3D(){
       const PIV=2;tmp.copy(DIR).multiplyScalar(PIV+(rel*spread-PIV)*(.015+.985*si));
       tmp.y+=u.h*.3;
       m.position.copy(tmp);
+      if(u.crackT){const k=Math.max(0,1-(performance.now()-u.crackT)/220);if(k>0){m.position.x+=(Math.random()-.5)*.026*k;m.position.y+=(Math.random()-.5)*.019*k}}
       m.rotation.y=0;
       m.rotation.x=tilt*.025;
       m.rotation.z=0;
       const fade=ss(rel,-.5,-.08)*(1-.65*ss(rel,4,8))*(intro<0?0:Math.min(1,intro*5));
-      const gu=u.glass.uniforms;gu.uFade.value=fade;gu.uHover.value=Math.min(1,u.h);gu.uDim.value=u.d;
+      const gu=u.glass.uniforms;gu.uFade.value=fade;/* 맨 앞에 온 판은 뿌연 정도를 낮춰 더 선명하게 (넘기는 중엔 자연스럽게 섞임) */gu.uHover.value=Math.max(Math.min(1,u.h),(innerWidth<innerHeight?FRONT_CLEAR_MOBILE:FRONT_CLEAR)*cl(1-Math.abs(rel),0,1));gu.uDim.value=u.d;
       u.side.opacity=fade*.9;
       m.visible=fade>.01;
     });
@@ -484,7 +505,7 @@ function glassThumbs(){
   r.setClearColor(0x000000,0);
   const cam=new THREE.OrthographicCamera(-.5,.5,.5,-.5,0,2);cam.position.z=1;
   const sc=new THREE.Scene(),haze=new THREE.Color();
-  const mat=new THREE.ShaderMaterial({uniforms:{map:{value:null},uHover:{value:0},uFade:{value:1},uDim:{value:0},uEdge:{value:0},uHaze:{value:haze}},vertexShader:VS,fragmentShader:FS,transparent:true,depthWrite:false});
+  const mat=new THREE.ShaderMaterial({uniforms:{map:{value:null},uRaw:{value:0},uHover:{value:0},uFade:{value:1},uDim:{value:0},uEdge:{value:0},uHaze:{value:haze}},vertexShader:VS,fragmentShader:FS,transparent:true,depthWrite:false});
   sc.add(new THREE.Mesh(new THREE.PlaneGeometry(1,1),mat));
   const aniso=r.capabilities.getMaxAnisotropy();
   const texs=arts.map(cv=>{const t=new THREE.CanvasTexture(cv);t.generateMipmaps=true;t.minFilter=THREE.LinearMipmapLinearFilter;t.anisotropy=aniso;return t});
