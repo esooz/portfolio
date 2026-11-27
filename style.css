@@ -56,6 +56,8 @@ html{scroll-snap-type:y proximity}
 .tip{position:fixed;z-index:6;left:0;top:0;padding:7px 12px;border-radius:12px;pointer-events:none;opacity:0;transition:opacity .15s;white-space:nowrap}
 .tip span{color:var(--mute);margin-left:8px}
 .tip.on{opacity:1}
+.ongo{position:fixed;z-index:30;left:50%;top:50%;transform:translate(-50%,-50%);padding:3px 7px;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:var(--fs);line-height:1.2;pointer-events:none;opacity:0;transition:opacity .2s ease;white-space:nowrap}
+.ongo.on{opacity:1}
 
 /* index sheet */
 .sheet{position:fixed;z-index:4;left:14px;right:14px;top:calc(env(safe-area-inset-top,0px) + 74px);bottom:calc(env(safe-area-inset-bottom,0px) + 74px);overflow:auto;padding:8px 20px;border-radius:20px}
@@ -118,24 +120,43 @@ dialog::backdrop{background:color-mix(in srgb,var(--bg) 25%,transparent);-webkit
 @media (max-width:720px){.cols h2,.cols .body{grid-column:1/-1}.facts{grid-template-columns:1fr}}
 
 .detail{position:fixed;inset:0;z-index:5;overflow:auto;background:var(--bg);font-size:var(--fs);line-height:1.3;
-  padding:calc(env(safe-area-inset-top,0px) + var(--hh) + 3px) 0 calc(env(safe-area-inset-bottom,0px) + var(--fp)*2 + var(--fs)*1.2 + 40px)}
+  padding:calc(env(safe-area-inset-top,0px) + var(--hh) + 28px) 0 calc(env(safe-area-inset-bottom,0px) + var(--fp)*2 + var(--fs)*1.2 + 28px)}
 .detail[hidden]{display:none}
 .is-detail .now{display:none}
-.dmeta{display:grid;grid-template-columns:18.75% 18.75% 50.5% 12%;align-items:start}
-.dback{padding-left:5px}
-.dnext{justify-self:end;padding-right:5px}
+/* 상세: 이미지 가운데, 정보는 이미지 오른쪽 / 화살표는 헤더 바로 아래 양 끝 */
+.dmeta{position:fixed;left:0;right:0;top:calc(env(safe-area-inset-top,0px) + var(--hh) + 3px);z-index:6;height:0}
+.dback,.dnext{position:absolute;top:0}
+.dback{left:5px}
+.dnext{right:5px}
 /* 화살표 세로 중심 = 오른쪽 글씨 첫 줄의 세로 중심 */
 .dback,.dnext{height:1.3em}
-.dtitle div,.dinfo div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.dgap{height:1.3em}
 .dback,.dnext,.dfoot a{transition:color .12s}
 .dback.flash,.dnext.flash,.dfoot a.flash{color:var(--mute)}
-.dshow{position:relative;width:calc(min(67.7%,calc((100svh - var(--hh) - max(10px,1.1vw) - 6.4em - var(--fp)*2 - 22px)*1.51))*.945);margin:2px auto 0;aspect-ratio:1612/1068}
+.dstage{position:relative;width:fit-content;margin:0 auto}
+.dstage{--band:calc(100svh - var(--hh) - var(--fp)*2 - var(--fs)*1.2 - 56px);--ar:.8;
+  /* 높이 = NUFLAAT 높이(꽉 채움). 가로로 너무 긴 장만 오른쪽 정보 칸이 들어갈 만큼까지만 커짐 */
+  --sh:min(var(--band),calc((100vw - 2*(4.5em + 30px))/var(--ar)));margin-top:calc((var(--band) - var(--sh))/2);transition:margin-top .18s ease}
+.dshow{position:relative;aspect-ratio:var(--ar);width:auto;height:var(--sh);transition:width .45s cubic-bezier(.4,0,.2,1),height .45s cubic-bezier(.4,0,.2,1)}
+.detail{scrollbar-width:none}.detail::-webkit-scrollbar{display:none}
+.dside{position:absolute;left:100%;top:0;margin-left:12px;width:14.5em;line-height:1.2}
+.dname{margin-bottom:1.2em;white-space:nowrap}
+.drow{margin-bottom:.45em}
+.dlab{color:var(--mute)}
+.ddesc{margin:1.65em 0 0}
+.dstage{transform:translateX(0);transition:margin-top .45s cubic-bezier(.4,0,.2,1),transform .45s cubic-bezier(.4,0,.2,1),opacity .45s ease}
+.dstage.open{transform:translateX(calc(-1*(12px + 14.5em)/2));--sh:min(var(--band),calc((100vw - 2*(14.5em + 30px))/var(--ar)))}
+.dtog{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cursor:pointer;line-height:1.2;white-space:nowrap;letter-spacing:inherit;transition:color .12s}
+.dtog:hover{color:var(--mute)}
+.dinfo{margin-top:1.2em;opacity:0;visibility:hidden;transition:opacity .28s ease,visibility 0s linear .28s}
+.dstage.open .dinfo{opacity:1;visibility:visible;transition:opacity .32s ease .08s,visibility 0s}
+/* 첫 장 비율을 알기 전엔 틀을 숨겨서 크기가 튀지 않게 */
+.dstage{opacity:0}
+.dstage.ready{opacity:1}
 .dshow.multi{cursor:e-resize}
 .dshow.multi.left{cursor:w-resize}
-.dslides>img,.dslides>.dvid,.dslides>.dgal{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;opacity:0;transition:opacity .18s ease}
+.dslides>img,.dslides>.dvid,.dslides>.dgal{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;opacity:0;transition:opacity .45s ease}
 .dvid video{display:block;width:100%;height:100%;object-fit:contain}
-.dslides>img.fill,.dslides>.dvid.fill video{object-fit:cover}
+.dslides>img,.dslides>.dvid video{object-fit:cover}
 /* 아이폰 사파리가 영상 가장자리에 1px 배경색 선을 그리는 문제 → 영상을 살짝 키우고 바깥을 잘라 숨김 */
 .dvid{overflow:hidden}
 .dvid video{transform:scale(1.012);transform-origin:50% 50%}
@@ -153,15 +174,21 @@ dialog::backdrop{background:color-mix(in srgb,var(--bg) 25%,transparent);-webkit
 .lb img{max-width:100%;max-height:100%;object-fit:contain;display:block}
 .dfoot{display:none}
 .dback,.dnext,.dfoot a{display:inline-flex;align-items:center;gap:.6em;white-space:nowrap}
+.dlbl{color:var(--mute);opacity:0;transition:opacity .18s ease;pointer-events:none}
+.dback:hover .dlbl,.dnext:hover .dlbl{opacity:1}
 .arr{width:4.2em;height:auto;aspect-ratio:523.38/65.46;flex:none;display:block}
 @media (max-width:700px){
   .detail{padding-top:calc(env(safe-area-inset-top,0px) + var(--hh) + 6px);padding-bottom:calc(max(9px,env(safe-area-inset-bottom,0px)) + var(--fs)*1.2 + 80px)}
   .gfoot{padding:9px 16px max(9px,env(safe-area-inset-bottom,0px))}
-  .dmeta{grid-template-columns:37% 63%;padding:0 6px 6px;font-size:max(13px,var(--fs))}
+  .dstage{width:auto;display:flex;flex-direction:column;opacity:1;margin-top:0}
+  .dname{white-space:normal}
+  .dstage,.dstage.open{transform:none}
+  .dtog{display:none}
+  .dinfo,.dstage .dinfo{margin-top:0;opacity:1;visibility:visible}
+  .dside{position:static;order:-1;width:auto;margin:0;padding:0 6px 12px;font-size:max(13px,var(--fs))}
+  .dname{margin-bottom:1.2em}.drow{margin-bottom:.7em}.ddesc{margin-top:1.2em}
   .dback,.dnext{display:none}
-  .dtitle div,.dinfo div{white-space:normal}
-  .dgap{display:none}
-  .dshow{width:100%;aspect-ratio:auto;margin:0}
+  .dshow{width:100%;height:auto;aspect-ratio:auto;margin:0}
   .dslides>img,.dslides>.dvid,.dslides>.dgal{position:static;width:100%;opacity:1;height:auto;margin:0}
   .dslides>.dgal{overflow:visible;padding:4px 6px;display:block}
   .dslides>.dgal,.dslides>.dgal:not(.on){pointer-events:auto}

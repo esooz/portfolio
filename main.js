@@ -45,23 +45,23 @@ function revealStack(){if(stackStart===null)stackStart=performance.now()}
    img가 있으면 생성 그래픽 대신 그 이미지가 유리판에 들어갑니다. */
 const projects = [
   // 맨 앞(첫 번째) 항목이 스택 맨 앞 유리판입니다. 이미지는 현재 임시 썸네일입니다 (7:5 권장).
-  {id:"cryptids", title:"CRYPTIDS", year:"Fall 2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/cryptids.jpg",
+  {id:"eschaton", title:"ESCHATON", year:"Fall 2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:["./images/eschaton-1.mp4?v=2", "./images/eschaton-2.mp4?v=2", "./images/eschaton-3.mp4"], img:"./images/cryptids.jpg",
    desc:"프로젝트 설명을 입력하세요.", c:["#2b2b2b", "#d8d8d4"], motif:"n"},
-  {id:"nuflaat", title:"NUFLAAT CRACKER CAMPAIGN", year:"Fall 2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal",
+  {id:"nuflaat", title:"NUFLAAT CRACKER CAMPAIGN", year:"Fall 2026", client:"Self-initiated", credit:"@pieceswork", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Graphic Design",
    slides:["./images/nuflaat-1.jpg?v=5", "./images/nuflaat-2.jpg?v=5", "./images/nuflaat-3.jpg?v=5", "./images/nuflaat-4.jpg?v=5"], img:"./images/nuflaat-thumb.jpg?v=3", crack:"./images/nuflaat-crack.jpg?v=6",
-   desc:"프로젝트 설명을 입력하세요.", c:["#e9dfcc", "#3b2b22"], motif:"rows"},
+   desc:"Made while working as an assistant at @pieceswork. Nuflaat is a butter &amp; bread cracker brand. The image sets a doll-like figure atop an oversized cupcake, crackers served on a giant spoon and fork — sweet, playful and a little surreal.", c:["#e9dfcc", "#3b2b22"], motif:"rows"},
   {id:"narrative-of-layer", title:"NARRATIVE OF LAYER", year:"Fall 2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:["./images/narrative-of-layer-1.jpg", "./images/narrative-of-layer-2.jpg", "./images/narrative-of-layer-3.jpg"], img:"./images/narrative-of-layer.jpg?v=4", crack:"./images/narrative-of-layer-crack.jpg",
    desc:"프로젝트 설명을 입력하세요.", c:["#c9cfdb", "#2e3442"], motif:"stack"},
-  {id:"oclyn", title:"OCLYN", year:"Winter 2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/oclyn.jpg",
+  {id:"oclyn", title:"OCLYN", year:"Winter 2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:["./images/oclyn-1.jpg?v=3","./images/oclyn-2.mp4?v=4","./images/oclyn-3.mp4","./images/oclyn-4.jpg?v=7","./images/oclyn-5.jpg?v=7","./images/oclyn-6.jpg?v=7","./images/oclyn-7.jpg?v=7","./images/oclyn-8.jpg?v=7","./images/oclyn-9.jpg?v=8","./images/oclyn-10.jpg?v=7"], img:"./images/oclyn.jpg?v=3", crack:"./images/oclyn-crack.jpg?v=2",
    desc:"프로젝트 설명을 입력하세요.", c:["#f2f2f2", "#1a1a1a"], motif:"wave"},
-  {id:"interwoven-time", title:"INTERWOVEN TIME", year:"Winter 2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/interwoven-time.jpg",
+  {id:"interwoven-time", ongoing:true, title:"INTERWOVEN TIME", year:"Winter 2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/interwoven-time.jpg",
    desc:"프로젝트 설명을 입력하세요.", c:["#eef1e6", "#4a4a55"], motif:"disc"},
   {id:"the-point-of-collection", title:"THE POINT OF COLLECTION", year:"Fall 2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal",
    slides:["./images/the-point-of-collection-1.mp4?v=2", "./images/the-point-of-collection-2.jpg", "./images/the-point-of-collection-3.jpg"], img:"./images/the-point-of-collection-thumb.jpg", crack:"./images/the-point-of-collection-crack.jpg",
    desc:"프로젝트 설명을 입력하세요.", c:["#f2f2f2", "#1a1a1a"], motif:"stamp"},
-  {id:"hatching-tomorrow", title:"HATCHING TOMORROW", year:"Winter 2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/hatching-tomorrow.jpg?v=4", crack:"./images/hatching-tomorrow-crack.jpg?v=2",
+  {id:"hatching-tomorrow", ongoing:true, title:"HATCHING TOMORROW", year:"Winter 2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/hatching-tomorrow.jpg?v=4", crack:"./images/hatching-tomorrow-crack.jpg?v=2",
    desc:"프로젝트 설명을 입력하세요.", c:["#0d0d0d", "#5f8079"], motif:"cover"},
-  {id:"untitled-01", title:"UNTITLED 01", year:"2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/untitled-01.jpg",
+  {id:"untitled-01", ongoing:true, title:"UNTITLED 01", year:"2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/untitled-01.jpg",
    desc:"프로젝트 설명을 입력하세요.", c:["#cccccc","#333333"], motif:"n"},
   {id:"interwoven-time-2", title:"INTERWOVEN TIME", year:"Winter 2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:["./images/interwoven2-1.jpg", "./images/interwoven2-2.jpg", "./images/interwoven2-3.jpg", "./images/interwoven2-4.mp4", "./images/interwoven2-5.jpg?v=2", "./images/interwoven2-6.jpg?v=2", "./images/interwoven2-7.mp4", "./images/interwoven2-8.jpg"], img:"./images/interwoven2-thumb.jpg?v=3", crack:"./images/interwoven2-crack.jpg?v=9",
    desc:"프로젝트 설명을 입력하세요.", c:["#cccccc","#333333"], motif:"n"},
@@ -119,46 +119,71 @@ const arts=[],thumbs=[],crackArts=[];
 /* ───────── UI ───────── */
 const $=s=>document.querySelector(s);
 const sheet=$('#indexSheet'),detail=$('#detail'),info=$('#info'),tip=$('#tip');
-const panel={get open(){return !detail.hidden},close(){detail.querySelectorAll('video').forEach(v=>v.pause());detail.hidden=true;document.body.classList.remove('is-detail')}};
+const panel={get open(){return !detail.hidden},close(){detail.querySelectorAll('video').forEach(v=>stopVid(v));detail.hidden=true;document.body.classList.remove('is-detail')}};
 let lastList='top',slideAt=0,slideN=1;
 function buildIndex(){
   sheet.innerHTML=`<div class="igrid">${projects.map(p=>`<button class="icard" data-id="${p.id}"><div class="iglass"><canvas></canvas><img alt=""></div><div class="icap"><span>${p.title}</span><span>(${p.year})</span></div></button>`).join('')}</div>`;
 }
 function fillImgs(){sheet.classList.add('noglass');sheet.querySelectorAll('.icard img').forEach((im,i)=>{im.src=arts[i].toDataURL('image/jpeg',.85)})}
 let drawThumbs=null;
+/* 아직 준비 중인 프로젝트: 클릭하면 들어가지 않고 클릭한 자리에 ONGOING만 잠깐 뜸 */
+let ongoEl=null,ongoT=0;
+function showOngoing(x,y,ms=1400){
+  if(!ongoEl){ongoEl=document.createElement('div');ongoEl.className='ongo';ongoEl.textContent='ONGOING';document.body.appendChild(ongoEl)}
+  ongoEl.style.left=Math.round(x)+'px';ongoEl.style.top=Math.round(y)+'px';
+  ongoEl.classList.add('on');clearTimeout(ongoT);ongoT=setTimeout(()=>ongoEl.classList.remove('on'),ms);
+}
+const ongoAt=el=>{const b=el.getBoundingClientRect();showOngoing(b.left+b.width/2,b.top+b.height/2,1300)};
 sheet.addEventListener('click',e=>{const r=e.target.closest('.icard');if(!r)return;
   const p=projects.find(q=>q.id===r.dataset.id),g=r.querySelector('.iglass');
+  if(p&&p.ongoing&&(!p.crack||!g||reduce)){ongoAt(g||r);return}
   /* GRID에서도 유리 깨짐 */
   if(p&&p.crack&&g&&!reduce){if(r.classList.contains('shatter'))return;
     const ca=crackArts[projects.indexOf(p)],ov=document.createElement(ca?'canvas':'img');ov.className='crack-ov';if(ca){ov.width=ca.width;ov.height=ca.height;ov.getContext('2d').drawImage(ca,0,0)}else ov.src=p.crack;g.appendChild(ov);r.classList.add('shatter');
-    setTimeout(()=>{location.hash=r.dataset.id},620);setTimeout(()=>{ov.remove();r.classList.remove('shatter')},1300);return}
+    if(p.ongoing)ongoAt(g);else setTimeout(()=>{location.hash=r.dataset.id},620);setTimeout(()=>{ov.remove();r.classList.remove('shatter')},1300);return}
   location.hash=r.dataset.id});
 document.querySelector('.views').addEventListener('click',e=>{const b=e.target.closest('[data-view]');if(!b)return;location.hash=b.dataset.view==='index'?'index':'top'});
 function setView(v){document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.view===v));sheet.hidden=v!=='index';document.body.classList.toggle('is-index',v==='index');if(v==='index'&&drawThumbs)requestAnimationFrame(drawThumbs)}
 
 function openProject(id){
-  const i=projects.findIndex(p=>p.id===id);if(i<0)return;const p=projects[i],nx=projects[(i+1)%N],pv=projects[(i-1+N)%N];
+  const i=projects.findIndex(p=>p.id===id);if(i<0)return;const p=projects[i],step=d=>{let k=i;do{k=(k+d+N)%N}while(projects[k].ongoing&&k!==i);return projects[k]},nx=step(1),pv=step(-1);
   const slides=p.slides&&p.slides.length?p.slides:[arts[i].toDataURL('image/jpeg',.9)];
-  const info4=[['Task scope',p.scope],['Sub task',p.sub],['Category',p.category],['Date of completion',p.date||p.year]].filter(x=>x[1]);
+  const isPh=t=>!t||/^프로젝트 설명/.test(t);
+  const rows=[['Category',p.category],['Year',p.year],['Credit',p.credit||p.client]].filter(x=>x[1]);
   detail.innerHTML=`<div class="dmeta">
-    <a class="dback" href="#${pv.id}" aria-label="Previous Project"><svg class="arr" viewBox="0 0 523.38 65.46" aria-hidden="true"><line x1="523.38" y1="32.73" x2="183.72" y2="32.73" stroke="currentColor" stroke-width="10.91"/><path fill="currentColor" d="M36.54,29.52C10.68,31,.11,31.72,0,32.73c.11,1.01,10.7,1.4,36.54,3.21,127.37,8.91,147.18,29.52,147.18,29.52V0s-19.41,22.23-147.18,29.52Z"/></svg></a>
-    <div class="dtitle"><div>${p.title}</div><div>${p.role||''}</div><div class="dgap"></div><div>${p.client||''}</div></div>
-    <div class="dinfo">${info4.map(x=>`<div>${x[0]} : ${x[1]}</div>`).join('')}</div>
-    <a class="dnext" href="#${nx.id}" aria-label="Next Project"><svg class="arr" viewBox="0 0 523.38 65.46" aria-hidden="true"><line y1="32.73" x2="339.66" y2="32.73" stroke="currentColor" stroke-width="10.91"/><path fill="currentColor" d="M486.84,29.52c25.86,1.48,36.43,2.2,36.54,3.21-.11,1.01-10.7,1.4-36.54,3.21-127.37,8.91-147.18,29.52-147.18,29.52V0s19.41,22.23,147.18,29.52Z"/></svg></a>
+    <a class="dback" href="#${pv.id}" aria-label="Previous Project"><svg class="arr" viewBox="0 0 523.38 65.46" aria-hidden="true"><line x1="523.38" y1="32.73" x2="183.72" y2="32.73" stroke="currentColor" stroke-width="10.91"/><path fill="currentColor" d="M36.54,29.52C10.68,31,.11,31.72,0,32.73c.11,1.01,10.7,1.4,36.54,3.21,127.37,8.91,147.18,29.52,147.18,29.52V0s-19.41,22.23-147.18,29.52Z"/></svg><span class="dlbl">PREVIOUS</span></a>
+    <a class="dnext" href="#${nx.id}" aria-label="Next Project"><span class="dlbl">NEXT</span><svg class="arr" viewBox="0 0 523.38 65.46" aria-hidden="true"><line y1="32.73" x2="339.66" y2="32.73" stroke="currentColor" stroke-width="10.91"/><path fill="currentColor" d="M486.84,29.52c25.86,1.48,36.43,2.2,36.54,3.21-.11,1.01-10.7,1.4-36.54,3.21-127.37,8.91-147.18,29.52-147.18,29.52V0s19.41,22.23,147.18,29.52Z"/></svg></a>
   </div>
+  <div class="dstage${infoOpen?' open':''}">
+  <div class="dside"><button class="dtog" type="button" aria-expanded="${infoOpen}">${infoOpen?'− INFO':'+ INFO'}</button><div class="dinfo"><div class="dname">${p.title}</div>${rows.map(x=>`<div class="drow"><div class="dlab">${x[0]}</div><div>${x[1]}</div></div>`).join('')}${isPh(p.desc)?'':`<p class="ddesc">${p.desc}</p>`}</div></div>
   <div class="dshow${slides.length>1?' multi':''}"><div class="dslides">${slides.map((s,k)=>s&&s.gallery?`<div class="dgal${k?'':' on'}"><div class="dgal-in">${s.gallery.map((g,j)=>`<button class="dgi" type="button" data-j="${j}" aria-label="${p.title} ${j+1} 크게 보기"><img loading="lazy" draggable="false" src="${g}" alt=""></button>`).join('')}</div></div>`:/\.(mp4|webm|mov)($|\?)|^data:video/i.test(s)?`<div class="dvid${k?'':' on'}"><video src="${s}" muted loop playsinline preload="auto" aria-label="${p.title} ${k+1}"></video></div>`:`<img draggable="false" src="${s}" alt="${p.title} ${k+1}"${k?'':' class="on"'}>`).join('')}</div>
     </div>
+  </div>
   <div class="dfoot"><span></span><a href="#${pv.id}" aria-label="Previous Project"><svg class="arr" viewBox="0 0 523.38 65.46" aria-hidden="true"><line x1="523.38" y1="32.73" x2="183.72" y2="32.73" stroke="currentColor" stroke-width="10.91"/><path fill="currentColor" d="M36.54,29.52C10.68,31,.11,31.72,0,32.73c.11,1.01,10.7,1.4,36.54,3.21,127.37,8.91,147.18,29.52,147.18,29.52V0s-19.41,22.23-147.18,29.52Z"/></svg></a><a href="#${nx.id}" aria-label="Next Project"><svg class="arr" viewBox="0 0 523.38 65.46" aria-hidden="true"><line y1="32.73" x2="339.66" y2="32.73" stroke="currentColor" stroke-width="10.91"/><path fill="currentColor" d="M486.84,29.52c25.86,1.48,36.43,2.2,36.54,3.21-.11,1.01-10.7,1.4-36.54,3.21-127.37,8.91-147.18,29.52-147.18,29.52V0s19.41,22.23,147.18,29.52Z"/></svg></a></div>`;
   slideAt=0;slideN=slides.length;
   /* 웹: 지금 화면에 띄워진 슬라이드의 영상만 재생(소리 포함), 나머지는 멈춤 / 모바일: 전부 재생, 소리는 화면에 보이는 만큼만 */
-  detail.querySelectorAll('.dslides video').forEach(v=>{const sl=v.closest('.dvid');if(isMob()||(sl&&sl.classList.contains('on')))playVid(v,true);else{setVol(v);v.pause()}});
+  detail.querySelectorAll('.dslides video').forEach(v=>{const sl=v.closest('.dvid');if(isMob()||(sl&&sl.classList.contains('on')))playVid(v,true);else{setVol(v);stopVid(v)}});
   requestAnimationFrame(mobVolumes);
   requestAnimationFrame(()=>requestAnimationFrame(fitGalleries));
-  /* 가로형 이미지·영상은 틀을 꽉 채움(양옆 여백 없음), 세로형은 잘리지 않게 가운데 */
-  detail.querySelectorAll('.dslides>img,.dslides>.dvid video').forEach(m=>{const f=()=>{const w=m.naturalWidth||m.videoWidth,h=m.naturalHeight||m.videoHeight;if(w&&h){const el=m.closest('.dvid')||m;el.classList.toggle('fill',w>=h);if(w/h>1.52&&el===el.parentNode.firstElementChild){const sh=el.closest('.dshow');if(sh&&!matchMedia('(max-width:700px)').matches)sh.style.aspectRatio=w+'/'+h}}};if(m.complete||m.readyState>0)f();m.addEventListener('load',f);m.addEventListener('loadedmetadata',f)});
+  /* 이미지: 항상 화면 정중앙, 한 프로젝트 안의 모든 장은 같은 높이.
+     높이 = 가장 가로로 긴 장도 양옆 정보 칸 안에 들어가는 높이. 틀 너비는 지금 보이는 장의 비율을 따라감 */
+  const sh0=detail.querySelector('.dshow');
+  const ms=[...detail.querySelectorAll('.dslides>img,.dslides>.dvid video')];
+  const done=()=>sh0.parentNode.classList.add('ready');
+  setTimeout(done,1500);if(!ms.length)done();
+  ms.forEach(m=>{const f=()=>{const w=m.naturalWidth||m.videoWidth,h=m.naturalHeight||m.videoHeight;if(!w||!h)return;(m.closest('.dvid')||m)._ar=w/h;sizeShow();if(ms.every(x=>(x.closest('.dvid')||x)._ar))done()};
+    if(m.complete||m.readyState>0)f();m.addEventListener('load',f);m.addEventListener('loadedmetadata',f)});
+  sizeShow();
   if(info.open)info.close();
   detail.hidden=false;document.body.classList.add('is-detail');detail.scrollTop=0;
 }
+/* + INFO: 기본은 이미지만 정중앙. 누르면 정보가 열리고 이미지+정보 묶음 전체가 가운데로 이동. 프로젝트 넘겨도 상태 유지 */
+var infoOpen=false;
+detail.addEventListener('click',e=>{
+  const t=e.target.closest('.dtog');if(!t)return;
+  infoOpen=!infoOpen;const st=t.closest('.dstage');st.classList.toggle('open',infoOpen);
+  t.textContent=infoOpen?'− INFO':'+ INFO';t.setAttribute('aria-expanded',infoOpen);
+});
 detail.addEventListener('click',e=>{
   const a=e.target.closest('.dback,.dnext,.dfoot a');if(!a)return;
   e.preventDefault();a.classList.add('flash');const h=a.getAttribute('href').slice(1);
@@ -194,7 +219,19 @@ function mobVolumes(){
     const vis=Math.max(0,Math.min(r.bottom,H)-Math.max(r.top,0));vidLevel(v,vis/Math.min(r.height,H))});
 }
 detail.addEventListener('scroll',mobVolumes,{passive:true});addEventListener('resize',mobVolumes);
+/* 끊김 없는 반복 재생: 끝나기 직전에 처음으로 되감고, 의도치 않게 멈추면 바로 다시 재생 */
+function stopVid(v){v._want=false;v.pause()}
+function keepLoop(v){
+  if(v._loopHooked)return;v._loopHooked=true;
+  v.addEventListener('ended',()=>{if(v._want){v.currentTime=0;v.play().catch(()=>{})}});
+  v.addEventListener('pause',()=>{if(v._want&&!detail.hidden&&!document.hidden)setTimeout(()=>{if(v._want&&v.paused)v.play().catch(()=>{})},60)});
+  v.addEventListener('stalled',()=>{if(v._want)v.play().catch(()=>{})});
+  const tick=()=>{if(v._want&&!v.paused&&v.duration&&v.currentTime>=v.duration-.07)v.currentTime=0;requestAnimationFrame(tick)};
+  requestAnimationFrame(tick);
+}
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)detail.querySelectorAll('.dslides video').forEach(v=>{if(v._want&&v.paused)v.play().catch(()=>{})})});
 function playVid(v,withSound){
+  v._want=true;keepLoop(v);
   primeAudio();setVol(v);if(isMob())mobVolumes();
   if(withSound&&!canSound(v)){withSound=false;armUnmute()}
   v.muted=!withSound;
@@ -209,11 +246,18 @@ function armUnmute(){
       setVol(v);if(!canSound(v))return;if(isMob())mobVolumes();v.muted=false;v.play().catch(()=>{v.muted=true})}})};
   ['pointerdown','touchend','keydown'].forEach(t=>addEventListener(t,on,true));
 }
+function sizeShow(){
+  const sh=detail.querySelector('.dshow');if(!sh)return;
+  const els=[...sh.querySelectorAll('.dslides>img,.dslides>.dvid,.dslides>.dgal')],ars=els.map(e=>e._ar).filter(Boolean);
+  const cur=els.find(e=>e.classList.contains('on'))||els[0];
+  sh.parentNode.style.setProperty('--ar',((cur&&cur._ar)||.8).toFixed(4));
+}
+addEventListener('resize',sizeShow);
 function goSlide(d){fitGalleries();
   const imgs=detail.querySelectorAll('.dslides > *');if(imgs.length<2)return;
   slideAt=(slideAt+d+imgs.length)%imgs.length;
-  imgs.forEach((im,k)=>{im.classList.toggle('on',k===slideAt);const v=im.querySelector&&im.querySelector('video');if(v){if(k===slideAt){v.currentTime=0;playVid(v,true)}else v.pause()}});
-  const c=detail.querySelector('.dcount span');if(c)c.textContent=slideAt+1;
+  imgs.forEach((im,k)=>{im.classList.toggle('on',k===slideAt);const v=im.querySelector&&im.querySelector('video');if(v){if(k===slideAt){v.currentTime=0;playVid(v,true)}else stopVid(v)}});
+  sizeShow();const c=detail.querySelector('.dcount span');if(c)c.textContent=slideAt+1;
 }
 /* 갤러리: 데스크탑에서는 스크롤 없이 모든 이미지가 틀 안에 잘리지 않고 다 들어가도록
    열 수를 자동으로 골라 가장 크게 배치 */
@@ -255,6 +299,7 @@ document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>{location.has
 function route(){
   const h=location.hash.slice(1);
   document.querySelectorAll('.nav a').forEach(a=>a.setAttribute('aria-current',a.getAttribute('href')==='#'+(h==='about'||h==='contact'?h:'top')));
+  if(projects.some(p=>p.id===h&&p.ongoing)){history.replaceState(null,'','#'+lastList);route();return}
   if(projects.some(p=>p.id===h)){openProject(h);return}
   if(panel.open)panel.close();
   if(h==='index')lastList='index';else if(h===''||h==='top')lastList='top';
@@ -399,16 +444,19 @@ function start3D(){
     /* 탭/클릭한 그 지점에서 바로 판을 찾음 (터치는 hover 상태를 쓰지 않음) */
     ray.setFromCamera(new THREE.Vector2(e.clientX/innerWidth*2-1,-(e.clientY/(canvas.clientHeight||innerHeight))*2+1),camera);
     const hs=ray.intersectObjects(meshes.filter(m=>m.visible&&m.userData.glass.uniforms.uFade.value>.3)),h=hs.length?hs[0].object:null;
-    if(!h)return;picked=h;const id=projects[h.userData.i].id;
+    if(!h)return;const ong=projects[h.userData.i].ongoing;
+    if(ong){const v=new THREE.Vector3();h.getWorldPosition(v);v.project(camera);showOngoing((v.x+1)/2*innerWidth,(1-v.y)/2*(canvas.clientHeight||innerHeight),1300)}
+    picked=h;const id=projects[h.userData.i].id;
     /* 유리 깨짐: 판 이미지를 금 간 이미지로 바꾸고 아주 미세하게 떨린 뒤 열림 */
     const ca=crackArts[h.userData.i];
     if(ca&&!reduce){const U=h.userData.glass.uniforms,orig=U.map.value;
       if(!h.userData.crackTex){const ct=new THREE.CanvasTexture(ca);ct.colorSpace=orig.colorSpace;ct.anisotropy=orig.anisotropy;h.userData.crackTex=ct}
       U.map.value=h.userData.crackTex;U.uRaw.value=1;h.userData.crackT=performance.now();
-      setTimeout(()=>{location.hash=id;picked=null},720);
+      setTimeout(()=>{if(!ong)location.hash=id;picked=null},ong?1300:720);
       setTimeout(()=>{U.map.value=orig;U.uRaw.value=0;h.userData.crackT=0},1400);return}
+    if(ong){picked=null;return}
     setTimeout(()=>{location.hash=id;picked=null},reduce?0:340)});
-  $('#nowOpen').onclick=()=>{location.hash=projects[(capM||meshes[front]).userData.i].id};
+  $('#nowOpen').onclick=e=>{const q=projects[(capM||meshes[front]).userData.i];if(q.ongoing){showOngoing(innerWidth/2,innerHeight/2);return}location.hash=q.id};
   addEventListener('keydown',e=>{
     if(panel.open||info.open||!sheet.hidden)return;
     if(e.key==='ArrowDown'||e.key==='ArrowRight'){e.preventDefault();scrollTo({top:Math.min(front+1,N-1)*step,behavior:'smooth'})}
