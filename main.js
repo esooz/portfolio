@@ -45,11 +45,11 @@ function revealStack(){if(stackStart===null)stackStart=performance.now()}
    img가 있으면 생성 그래픽 대신 그 이미지가 유리판에 들어갑니다. */
 const projects = [
   // 맨 앞(첫 번째) 항목이 스택 맨 앞 유리판입니다. 이미지는 현재 임시 썸네일입니다 (7:5 권장).
-  {id:"eschaton", title:"ESCHATON", year:"Fall 2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:["./images/eschaton-1.mp4?v=2", "./images/eschaton-2.mp4?v=2", "./images/eschaton-3.mp4"], img:"./images/cryptids.jpg",
+  {id:"eschaton", title:"ESCHATON", year:"Winter 2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:["./images/eschaton-1.mp4?v=2", "./images/eschaton-2.mp4?v=2", "./images/eschaton-3.mp4"], img:"./images/cryptids.jpg",
    desc:"프로젝트 설명을 입력하세요.", c:["#2b2b2b", "#d8d8d4"], motif:"n"},
   {id:"nuflaat", title:"NUFLAAT CRACKER CAMPAIGN", year:"Fall 2026", client:"Self-initiated", credit:"@pieceswork", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Graphic Design",
    slides:["./images/nuflaat-1.jpg?v=5", "./images/nuflaat-2.jpg?v=5", "./images/nuflaat-3.jpg?v=5", "./images/nuflaat-4.jpg?v=5"], img:"./images/nuflaat-thumb.jpg?v=3", crack:"./images/nuflaat-crack.jpg?v=6",
-   desc:"Made while working as an assistant at @pieceswork. Nuflaat is a butter &amp; bread cracker brand. The image sets a doll-like figure atop an oversized cupcake, crackers served on a giant spoon and fork — sweet, playful and a little surreal.", c:["#e9dfcc", "#3b2b22"], motif:"rows"},
+   desc:"프로젝트 설명을 입력하세요." /* 이전 설명(나중에 다시 쓸 때): Made while working as an assistant at @pieceswork. Nuflaat is a butter &amp; bread cracker brand. The image sets a doll-like figure atop an oversized cupcake, crackers served on a giant spoon and fork — sweet, playful and a little surreal. */, c:["#e9dfcc", "#3b2b22"], motif:"rows"},
   {id:"narrative-of-layer", title:"NARRATIVE OF LAYER", year:"Fall 2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:["./images/narrative-of-layer-1.jpg", "./images/narrative-of-layer-2.jpg", "./images/narrative-of-layer-3.jpg"], img:"./images/narrative-of-layer.jpg?v=4", crack:"./images/narrative-of-layer-crack.jpg",
    desc:"프로젝트 설명을 입력하세요.", c:["#c9cfdb", "#2e3442"], motif:"stack"},
   {id:"oclyn", title:"OCLYN", year:"Winter 2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:["./images/oclyn-1.jpg?v=3","./images/oclyn-2.mp4?v=4","./images/oclyn-3.mp4","./images/oclyn-4.jpg?v=7","./images/oclyn-5.jpg?v=7","./images/oclyn-6.jpg?v=7","./images/oclyn-7.jpg?v=7","./images/oclyn-8.jpg?v=7","./images/oclyn-9.jpg?v=8","./images/oclyn-10.jpg?v=7"], img:"./images/oclyn.jpg?v=3", crack:"./images/oclyn-crack.jpg?v=2",
@@ -61,14 +61,12 @@ const projects = [
    desc:"프로젝트 설명을 입력하세요.", c:["#f2f2f2", "#1a1a1a"], motif:"stamp"},
   {id:"hatching-tomorrow", ongoing:true, title:"HATCHING TOMORROW", year:"Winter 2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/hatching-tomorrow.jpg?v=4", crack:"./images/hatching-tomorrow-crack.jpg?v=2",
    desc:"프로젝트 설명을 입력하세요.", c:["#0d0d0d", "#5f8079"], motif:"cover"},
-  {id:"untitled-01", ongoing:true, title:"UNTITLED 01", year:"2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:[], img:"./images/untitled-01.jpg",
-   desc:"프로젝트 설명을 입력하세요.", c:["#cccccc","#333333"], motif:"n"},
   {id:"interwoven-time-2", title:"INTERWOVEN TIME", year:"Winter 2025", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:["./images/interwoven2-1.jpg", "./images/interwoven2-2.jpg", "./images/interwoven2-3.jpg", "./images/interwoven2-4.mp4", "./images/interwoven2-5.jpg?v=2", "./images/interwoven2-6.jpg?v=2", "./images/interwoven2-7.mp4", "./images/interwoven2-8.jpg"], img:"./images/interwoven2-thumb.jpg?v=3", crack:"./images/interwoven2-crack.jpg?v=9",
    desc:"프로젝트 설명을 입력하세요.", c:["#cccccc","#333333"], motif:"n"},
-  {id:"samsung-galaxy-unpacked", title:"SAMSUNG GALAXY UNPACKED", year:"2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal",
+  {id:"samsung-galaxy-unpacked", title:"SAMSUNG GALAXY UNPACKED", year:"Spring 2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal",
    slides:["./images/samsung-1.mp4"], img:"./images/samsung-thumb.jpg?v=2", crack:"./images/samsung-crack.jpg?v=8",
    desc:"프로젝트 설명을 입력하세요.", c:["#cccccc","#333333"], motif:"n"},
-  {id:"blackpink-go", title:"BLACKPINK “GO” M/V", year:"2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:["./images/blackpink-1.jpg", "./images/blackpink-2.mp4?v=3", "./images/blackpink-3.jpg", "./images/blackpink-4.jpg", "./images/blackpink-5.jpg", "./images/blackpink-6.jpg", "./images/blackpink-7.jpg", "./images/blackpink-8.jpg", "./images/blackpink-9.jpg", "./images/blackpink-10.jpg"], img:"./images/blackpink-thumb.jpg", crack:"./images/blackpink-crack.jpg?v=2",
+  {id:"blackpink-go", title:"BLACKPINK “GO” M/V", year:"Winter 2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:["./images/blackpink-1.jpg", "./images/blackpink-2.mp4?v=3", "./images/blackpink-3.jpg", "./images/blackpink-4.jpg", "./images/blackpink-5.jpg", "./images/blackpink-6.jpg", "./images/blackpink-7.jpg", "./images/blackpink-8.jpg", "./images/blackpink-9.jpg", "./images/blackpink-10.jpg"], img:"./images/blackpink-thumb.jpg", crack:"./images/blackpink-crack.jpg?v=2",
    desc:"프로젝트 설명을 입력하세요.", c:["#cccccc","#333333"], motif:"n"},
   {id:"coilisim", title:"COILISIM 蝸殼敎", year:"Summer 2026", client:"Self-initiated", cat:"", role:"Art direction, Visual identity", scope:"Full brand design", sub:"Editorial design", category:"Personal", slides:["./images/coilisim-1.jpg", "./images/coilisim-2.jpg", "./images/coilisim-3.jpg", "./images/coilisim-4.jpg", "./images/coilisim-5.jpg", "./images/coilisim-6.jpg", "./images/coilisim-7.jpg", "./images/coilisim-8.jpg", "./images/coilisim-9.jpg", "./images/coilisim-10.jpg", "./images/coilisim-11.jpg"], img:"./images/untitled-05.jpg",
    desc:"프로젝트 설명을 입력하세요.", c:["#cccccc","#333333"], motif:"n"}
@@ -149,7 +147,8 @@ function openProject(id){
   const i=projects.findIndex(p=>p.id===id);if(i<0)return;const p=projects[i],step=d=>{let k=i;do{k=(k+d+N)%N}while(projects[k].ongoing&&k!==i);return projects[k]},nx=step(1),pv=step(-1);
   const slides=p.slides&&p.slides.length?p.slides:[arts[i].toDataURL('image/jpeg',.9)];
   const isPh=t=>!t||/^프로젝트 설명/.test(t);
-  const rows=[['Category',p.category],['Year',p.year],['Credit',p.credit||p.client]].filter(x=>x[1]);
+  const rows=[['Category',p.category],['Year',p.year],['Credit',CREDIT_IDS.includes(p.id)?(p.credit||p.client):'']].filter(x=>x[1]);
+  detail.querySelectorAll('video').forEach(v=>{stopVid(v);vidLevel(v,0);v.muted=true;v.removeAttribute('src');try{v.load()}catch(e){}});
   detail.innerHTML=`<div class="dmeta">
     <a class="dback" href="#${pv.id}" aria-label="Previous Project"><svg class="arr" viewBox="0 0 523.38 65.46" aria-hidden="true"><line x1="523.38" y1="32.73" x2="183.72" y2="32.73" stroke="currentColor" stroke-width="10.91"/><path fill="currentColor" d="M36.54,29.52C10.68,31,.11,31.72,0,32.73c.11,1.01,10.7,1.4,36.54,3.21,127.37,8.91,147.18,29.52,147.18,29.52V0s-19.41,22.23-147.18,29.52Z"/></svg><span class="dlbl">PREVIOUS</span></a>
     <a class="dnext" href="#${nx.id}" aria-label="Next Project"><span class="dlbl">NEXT</span><svg class="arr" viewBox="0 0 523.38 65.46" aria-hidden="true"><line y1="32.73" x2="339.66" y2="32.73" stroke="currentColor" stroke-width="10.91"/><path fill="currentColor" d="M486.84,29.52c25.86,1.48,36.43,2.2,36.54,3.21-.11,1.01-10.7,1.4-36.54,3.21-127.37,8.91-147.18,29.52-147.18,29.52V0s19.41,22.23,147.18,29.52Z"/></svg></a>
@@ -209,24 +208,27 @@ function setVol(v){
   try{const src=actx.createMediaElementSource(v),g=actx.createGain();g.gain.value=VOL;src.connect(g);g.connect(actx.destination);v._g=g}catch(e){}
 }
 const canSound=v=>!NEED_GAIN||!!(v._g&&actx);
+const CREDIT_IDS=['nuflaat','blackpink-go','samsung-galaxy-unpacked'];
 const isMob=()=>matchMedia('(max-width:700px)').matches;
 /* 영상 소리 크기 = VOL × f (f: 0~1) */
 function vidLevel(v,f){f=Math.max(0,Math.min(1,f));const L=VOL*f;if(v._g)v._g.gain.value=L;else if(!NEED_GAIN)v.volume=L}
 /* 모바일: 스크롤로 영상이 화면 밖으로 나갈수록 소리가 점점 작아짐 (영상은 계속 재생) */
 function mobVolumes(){
-  if(!isMob()||detail.hidden)return;const H=innerHeight;
-  detail.querySelectorAll('.dslides video').forEach(v=>{const r=v.getBoundingClientRect();if(!r.height)return;
-    const vis=Math.max(0,Math.min(r.bottom,H)-Math.max(r.top,0));vidLevel(v,vis/Math.min(r.height,H))});
+  if(!isMob()||detail.hidden)return;const H=innerHeight;let best=null,bf=0;const vs=[...detail.querySelectorAll('.dslides video')];
+  vs.forEach(v=>{const r=v.getBoundingClientRect();if(!r.height){v._f=0;return}
+    const vis=Math.max(0,Math.min(r.bottom,H)-Math.max(r.top,0));v._f=vis/Math.min(r.height,H);if(v._f>bf){bf=v._f;best=v}});
+  /* 소리는 화면에 가장 많이 보이는 영상 하나만, 60% 이상 보일 때부터 점점 커짐 → 넘기면 바로 꺼짐 */
+  vs.forEach(v=>vidLevel(v,v===best?(v._f-.6)/.3:0));
 }
-detail.addEventListener('scroll',mobVolumes,{passive:true});addEventListener('resize',mobVolumes);
+detail.addEventListener('scroll',mobVolumes,{passive:true});addEventListener('scroll',mobVolumes,{passive:true});addEventListener('resize',mobVolumes);
 /* 끊김 없는 반복 재생: 끝나기 직전에 처음으로 되감고, 의도치 않게 멈추면 바로 다시 재생 */
 function stopVid(v){v._want=false;v.pause()}
 function keepLoop(v){
   if(v._loopHooked)return;v._loopHooked=true;
-  v.addEventListener('ended',()=>{if(v._want){v.currentTime=0;v.play().catch(()=>{})}});
-  v.addEventListener('pause',()=>{if(v._want&&!detail.hidden&&!document.hidden)setTimeout(()=>{if(v._want&&v.paused)v.play().catch(()=>{})},60)});
-  v.addEventListener('stalled',()=>{if(v._want)v.play().catch(()=>{})});
-  const tick=()=>{if(v._want&&!v.paused&&v.duration&&v.currentTime>=v.duration-.07)v.currentTime=0;requestAnimationFrame(tick)};
+  v.addEventListener('ended',()=>{if(v._want&&v.isConnected){v.currentTime=0;v.play().catch(()=>{})}});
+  v.addEventListener('pause',()=>{if(v._want&&v.isConnected&&!detail.hidden&&!document.hidden)setTimeout(()=>{if(v._want&&v.isConnected&&v.paused)v.play().catch(()=>{})},60)});
+  v.addEventListener('stalled',()=>{if(v._want&&v.isConnected)v.play().catch(()=>{})});
+  const tick=()=>{if(!v.isConnected)return;if(v._want&&!v.paused&&v.duration&&v.currentTime>=v.duration-.07)v.currentTime=0;requestAnimationFrame(tick)};
   requestAnimationFrame(tick);
 }
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)detail.querySelectorAll('.dslides video').forEach(v=>{if(v._want&&v.paused)v.play().catch(()=>{})})});
