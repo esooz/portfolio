@@ -390,7 +390,7 @@ function start3D(){
      follow: 판이 따라오는 빠르기 (클수록 빠름) */
   /* 맨 앞 판 선명도 (0=다른 판과 같음, 1=마우스 올렸을 때만큼 선명) — 데스크탑 / 모바일 따로 */
   const FRONT_CLEAR=0,FRONT_CLEAR_MOBILE=.45;
-  const SCROLL={mobile:{step:.56,follow:8.5},desktop:{step:.9,follow:6.5}};
+  const SCROLL={mobile:{step:.42,follow:10},desktop:{step:.65,follow:8.5}};
   const camera=new THREE.PerspectiveCamera(32,1,.1,100);const PT=.2301;let pile=null,pOff=null,pZ=1;
   renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
   const geo=new THREE.BoxGeometry(2.1,1.5,.028);
