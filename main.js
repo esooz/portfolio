@@ -409,6 +409,8 @@ function start3D(){
   });
   const track=$('#track');
   let step=1,camZ=8,camY=0;
+  let REV=false,sized=false,pileFront=0;const posOf=i=>(REV?(N-1-i):i)*step,idxOf=y=>REV?(N-1)-y/step:y/step;
+  if('scrollRestoration' in history)history.scrollRestoration='manual';
   function size(){
     /* 폰 사파리 주소창이 접히고 펴질 때 높이가 바뀌어 화면이 튀지 않도록, 가장 큰 화면 높이(lvh) 기준으로 고정 */
     const w=innerWidth,h=canvas.clientHeight||innerHeight;renderer.setSize(w,h,false);camera.aspect=w/h;
@@ -425,6 +427,9 @@ function start3D(){
       pile={top,bot};
     }else pile=null;
     step=h*(w<h?SCROLL.mobile.step:SCROLL.desktop.step);track.style.height=(h+(N-1)*step)+'px';
+    /* 스크롤 방향 반대(폰은 손가락을 아래로, 데스크탑은 휠을 위로 올리면 다음 판). 시작 위치는 페이지 맨 아래 */
+    const wasRev=REV,keep=pileFront;REV=true;
+    if(REV!==wasRev||!sized){sized=true;requestAnimationFrame(()=>scrollTo(0,posOf(keep)))}
     track.innerHTML=projects.map((_,i)=>`<div class="snap" style="top:${i*step}px"></div>`).join('');
     const bg=getComputedStyle(document.documentElement).getPropertyValue('--bg').trim()||'#f6f6f5';
     renderer.setClearColor(bg);haze.set(bg).lerp(new THREE.Color('#e4e4e2'),.55);
@@ -460,10 +465,10 @@ function start3D(){
   $('#nowOpen').onclick=e=>{const q=projects[(capM||meshes[front]).userData.i];if(q.ongoing){showOngoing(innerWidth/2,innerHeight/2);return}location.hash=q.id};
   addEventListener('keydown',e=>{
     if(panel.open||info.open||!sheet.hidden)return;
-    if(e.key==='ArrowDown'||e.key==='ArrowRight'){e.preventDefault();scrollTo({top:Math.min(front+1,N-1)*step,behavior:'smooth'})}
-    if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();scrollTo({top:Math.max(front-1,0)*step,behavior:'smooth'})}
+    if(e.key==='ArrowDown'||e.key==='ArrowRight'){e.preventDefault();scrollTo({top:posOf(Math.min(front+1,N-1)),behavior:'smooth'})}
+    if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();scrollTo({top:posOf(Math.max(front-1,0)),behavior:'smooth'})}
   });
-  addEventListener('scroll',()=>document.body.classList.toggle('scrolled',scrollY>20),{passive:true});
+  addEventListener('scroll',()=>document.body.classList.toggle('scrolled',idxOf(scrollY)*step>20),{passive:true});
   /* 트랙패드: 맨 위·맨 아래 끝에서 더 밀어도 화면이 튕기거나(헤더가 밀려 사라짐) 새로고침되지 않게 */
   addEventListener('wheel',e=>{
     if(Math.abs(e.deltaY)<=Math.abs(e.deltaX))return;
@@ -479,7 +484,7 @@ function start3D(){
   function frame(now){
     const dt=Math.min((now-last)/1000,.05)||.016;last=now;
     const damp=r=>reduce?1:1-Math.exp(-dt*r);
-    const target=cl(scrollY/step,0,N-1);
+    const target=cl(idxOf(scrollY),0,N-1);
     const prev=cur;cur+=(target-cur)*damp(innerWidth<innerHeight?SCROLL.mobile.follow:SCROLL.desktop.follow);
     vel+=((cur-prev)/dt-vel)*damp(6);
     cmx+=(mx-cmx)*damp(2.5);cmy+=(my-cmy)*damp(2.5);
@@ -497,7 +502,7 @@ function start3D(){
     }
 
     const f=Math.round(cur);
-    if(f!==front){front=f}
+    if(f!==front){front=f;pileFront=f}
 
     const blocked=panel.open||info.open||!sheet.hidden;
     ray.setFromCamera(ptr,camera);
